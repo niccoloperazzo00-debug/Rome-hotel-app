@@ -1,0 +1,609 @@
+/* ============================================
+   POPUP STYLES - Based on Figma Design
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
+/* ===== POPUP OVERLAY ===== */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(70, 70, 70, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+/* ===== POPUP CONTENT CONTAINER ===== */
+.popup-content {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TOP BORDER (Neatline) ===== */
+.popup-top-line {
+  height: 12px;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  background: #27ae60;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.popup-top-line.neatline-verde { background: #27ae60; }
+.popup-top-line.neatline-giallo { background: #f1c40f; }
+.popup-top-line.neatline-rosso { background: #e74c3c; }
+.popup-top-line.neatline-bianco { background: #ecf0f1; }
+
+/* ===== HEADER SECTION ===== */
+.popup-header {
+  position: relative;
+  text-align: center;
+  padding: 1.25rem 1.5rem 1rem 1.5rem;
+  flex-shrink: 0;
+}
+
+.popup-municipio {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  font-family: 'Gloock', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.popup-header h3 {
+  margin: 0 0 0.5rem 0;
+  color: #000;
+  font-family: 'Gloock', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.star-rating {
+  color: #d1b200;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  font-family: 'Gloock', serif;
+}
+
+.star-number {
+  color: #d1b200;
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-family: 'Gloock', serif;
+}
+
+/* ===== SHARED TOGGLE STYLES (Status & Phase) ===== */
+.status-dropdown-section,
+.phase-controls {
+  margin: 0.75rem 1.5rem;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.status-dropdown-trigger,
+.phase-dropdown-trigger {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  width: auto;
+  min-width: fit-content;
+  box-sizing: border-box;
+}
+
+/* Phase dropdown trigger specific styling */
+.phase-dropdown-trigger {
+  justify-content: space-between;
+  width: auto;
+  min-width: 120px;
+  gap: 8px;
+}
+
+/* Status trigger colors */
+.status-dropdown-trigger.status-verde {
+  background: #27ae60;
+}
+
+.status-dropdown-trigger.status-giallo {
+  background: #f1c40f;
+}
+
+.status-dropdown-trigger.status-rosso {
+  background: #e74c3c;
+}
+
+.status-dropdown-trigger.status-bianco {
+  background: #ffffff;
+}
+
+/* Phase trigger styling */
+.phase-dropdown-trigger {
+  background: white;
+  border: 1px solid #ddd;
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+/* Status text base styling */
+.status-text {
+  font-family: 'Gloock', serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Status text colors matching dropdown options */
+.status-text.status-verde {
+  color: #2ecc71; /* Vibrant bright green text */
+}
+
+.status-text.status-giallo {
+  color: #f39c12; /* Vibrant bright yellow text */
+}
+
+.status-text.status-rosso {
+  color: #ec7063; /* Vibrant bright red text */
+}
+
+.status-text.status-bianco {
+  color: #95a5a6; /* Light grey text */
+}
+
+.phase-text {
+  color: #333;
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-transform: none;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  font-family: 'Gloock', serif;
+}
+
+.phase-dropdown-trigger .dropdown-arrow {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.dropdown-arrow {
+  font-size: 0.75rem;
+  margin-left: 8px;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.status-dropdown-trigger.status-verde .dropdown-arrow,
+.status-dropdown-trigger.status-rosso .dropdown-arrow {
+  color: white;
+}
+
+.status-dropdown-trigger.status-giallo .dropdown-arrow,
+.status-dropdown-trigger.status-bianco .dropdown-arrow,
+.phase-dropdown-trigger .dropdown-arrow {
+  color: #333;
+}
+
+/* ===== DROPDOWN MENUS ===== */
+.status-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10001;
+  display: none;
+  overflow: hidden;
+  width: auto;
+  min-width: fit-content;
+}
+
+.status-dropdown-menu:not(.hidden) {
+  display: block;
+}
+
+.status-dropdown-menu .status-option {
+  padding: 10px 14px;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+  text-align: center;
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  font-family: 'Gloock', serif;
+}
+
+.status-dropdown-menu .status-option:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.status-dropdown-menu .status-option:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.status-dropdown-menu .status-option:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+
+.status-dropdown-menu .status-option:hover {
+  opacity: 0.9;
+}
+
+/* Status option colors with vibrant text matching background */
+.status-option.status-verde {
+  background: #27ae60;
+  color: #2ecc71; /* Vibrant bright green text */
+}
+
+.status-option.status-giallo {
+  background: #f1c40f;
+  color: #f39c12; /* Vibrant bright yellow text */
+}
+
+.status-option.status-rosso {
+  background: #e74c3c;
+  color: #ec7063; /* Vibrant bright red text */
+}
+
+.status-option.status-bianco {
+  background: #ffffff;
+  color: #95a5a6; /* Light grey text on white */
+}
+
+/* Remove arrow icon from VERDE option in dropdown */
+.status-dropdown-menu .status-option.status-verde::after {
+  display: none;
+}
+
+.phase-controls.hidden {
+  display: none;
+}
+
+.phase-dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
+  font-family: 'Gloock', serif;
+}
+
+/* ===== ADDRESS SECTION ===== */
+.address-section {
+  margin: 0;
+  padding: 0.4rem 1.5rem 0.3rem 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+  font-weight: normal !important;
+}
+
+.address-section * {
+  font-weight: normal !important;
+}
+
+.address-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 2px;
+  background: #b0b0b0;
+}
+
+.address-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.address-line {
+  display: inline-block;
+  font-family: 'Gloock', serif;
+  padding-bottom: 0.1rem;
+  font-weight: normal !important;
+}
+
+.address-label {
+  font-size: 0.85rem;
+  font-weight: normal !important;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Gloock', serif;
+  font-style: normal;
+}
+
+.address-value {
+  font-size: 0.85rem;
+  color: #000;
+  font-weight: normal !important;
+  font-family: 'Gloock', serif;
+  font-style: normal;
+}
+
+/* ===== COORDINATES SECTION ===== */
+.coordinates-section {
+  margin: 0;
+  padding: 0.3rem 1.5rem 0.4rem 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+  font-weight: normal !important;
+}
+
+.coordinates-section * {
+  font-weight: normal !important;
+}
+
+.coordinates-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 2px;
+  background: #b0b0b0;
+}
+
+.coord-row {
+  display: block;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.2rem;
+  position: relative;
+  font-family: 'Gloock', serif;
+  font-weight: normal !important;
+}
+
+.coord-row::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.coord-row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0.2rem;
+}
+
+.coord-row:last-child::after {
+  display: block;
+}
+
+.coord-label {
+  font-size: 0.85rem;
+  font-weight: normal !important;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Gloock', serif;
+  display: inline;
+  font-style: normal;
+}
+
+.coord-input {
+  display: inline;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-size: 0.85rem;
+  font-family: 'Gloock', serif;
+  background: transparent;
+  color: #000;
+  font-weight: normal !important;
+  font-style: normal;
+  margin-left: 0.5rem;
+  width: auto;
+  min-width: 150px;
+}
+
+.coord-input:focus {
+  outline: none;
+}
+
+.coord-input::placeholder {
+  color: transparent;
+}
+
+/* ===== NOTES TEXTAREA ===== */
+#popupNotes {
+  width: calc(100% - 3rem);
+  margin: 0.75rem 1.5rem;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: 'Gloock', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 80px;
+  max-height: 120px;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+#popupNotes:focus {
+  border-color: #27ae60;
+  outline: none;
+}
+
+#popupNotes::placeholder {
+  color: #999;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.popup-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 1.5rem 1.5rem 1.5rem;
+  flex-shrink: 0;
+}
+
+.popup-actions button {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  font-family: 'Gloock', serif;
+}
+
+.popup-actions button:first-child {
+  background: #d1b200;
+  color: white;
+  border: none;
+}
+
+.popup-actions button:first-child:hover {
+  background: #b8940f;
+}
+
+.popup-actions button:last-child {
+  background: transparent;
+  color: #d1b200;
+  border: 2px solid #d1b200;
+}
+
+.popup-actions button:last-child:hover {
+  background: transparent;
+  border-color: #b8940f;
+  color: #b8940f;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+  .popup {
+    align-items: flex-end;
+  }
+
+  .popup-content {
+    width: 100%;
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .popup-top-line {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .popup-header {
+    padding: 1rem 1.25rem 0.75rem 1.25rem;
+  }
+
+  .status-dropdown-section,
+  .phase-controls,
+  .address-section,
+  .coordinates-section {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  #popupNotes {
+    margin: 0.75rem 1.25rem;
+    width: calc(100% - 2.5rem);
+    font-size: 16px;
+  }
+
+  .popup-actions {
+    margin: 1rem 1.25rem 1.25rem 1.25rem;
+    flex-direction: column;
+  }
+
+  .popup-actions button {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  .status-dropdown-trigger,
+  .phase-dropdown-trigger {
+    padding: 14px;
+    min-height: 44px;
+  }
+}
+
+/* ===== SMOOTH TRANSITIONS ===== */
+.popup-content {
+  animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

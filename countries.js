@@ -51,7 +51,7 @@ export async function loadCountriesMask() {
             strokeWidth: 2,
             opacity: 0,
             fillColor: "#bdbdbd",
-            fillOpacity: 0.9, // dim/whiten outside Italy
+            fillOpacity: 0.9,
           };
     },
     onEachFeature: (feature, layer) => {
@@ -121,10 +121,11 @@ export async function loadDifferenceMask() {
   differenceLayer = L.geoJSON(data, {
     pane: "maskPane",
     style: (feature) => {
-      const italy = isItaly(feature?.properties);
-      return italy
-        ? { color: "#bdbdbd", strokeWidth: 2, opacity: 0.6, fillOpacity: 0.0 }
-        : { color: "#bdbdbd", strokeWidth: 2, opacity: 0, fillOpacity: 0.9 };
+      // FIX: Call isItaly function directly here instead of using undefined variable
+      const isItalyFeature = isItaly(feature?.properties);
+      return isItalyFeature
+        ? { color: "#ffffff", strokeWidth: 2, opacity: 0.6, fillOpacity: 0.0 }
+        : { color: "#ffffff", strokeWidth: 2, opacity: 0, fillOpacity: 0.9 };
     },
     onEachFeature: (feature, layer) => {
       if (isItaly(feature?.properties)) {
@@ -146,7 +147,6 @@ export async function loadDifferenceMask() {
     map.fitBounds(italyBounds, { padding: [40, 40], maxZoom: 7 });
   }
 }
-
 export function removeDifferenceMask() {
   const map = getMap();
   if (differenceLayer && map) {

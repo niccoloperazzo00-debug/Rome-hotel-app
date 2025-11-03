@@ -6,33 +6,52 @@ export function getMap() {
   return map;
 }
 
+// ✅ MapTiler API key
+const MAPTILER_API_KEY = window.MAPTILER_API_KEY || "JkKDNqB2qGVP6SPbJOtO";
+
 export function initMap() {
   map = L.map("map", {
-    zoomControl: true,
+    zoomControl: false, // Will be added manually with custom positioning
     scrollWheelZoom: true,
-    wheelDebounceTime: 20,
-    wheelPxPerZoomLevel: 80,
+    wheelDebounceTime: 100, // Increased debounce for smoother scrolling
+    wheelPxPerZoomLevel: 120,
     zoomAnimation: true,
-    zoomSnap: 0.25,
-    zoomDelta: 0.25,
+    zoomSnap: 1, // Smoother zoom steps
+    zoomDelta: 1, // Smoother zoom steps
     touchZoom: true,
+    doubleClickZoom: true,
     inertia: true,
+    inertiaDeceleration: 4000, // Increased for faster stopping
+    inertiaMaxSpeed: 1500, // Increased max speed for faster movement
     keyboard: true,
     boxZoom: true,
     preferCanvas: true,
-    maxBoundsViscosity: 1.0,
+    fadeAnimation: true, // Enable smooth fade animations
+    markerZoomAnimation: true, // Enable marker animations
+    transform3DLimit: 8388608,
+    worldCopyJump: false, // Prevent map jumping
   }).setView(ROME_CENTER, 10);
+
+  // ✅ Add zoom controls manually for better positioning
+  L.control.zoom({
+    position: 'topright',
+    zoomInTitle: 'Zoom in',
+    zoomOutTitle: 'Zoom out'
+  }).addTo(map);
+
+  // ✅ MapTiler basemap - optimized to prevent excessive loading
   baseTileLayer = L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
+    `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${MAPTILER_API_KEY}`,
     {
       maxZoom: 19,
-      keepBuffer: 6,
-      updateWhenIdle: true,
-      updateWhenZooming: false,
-      crossOrigin: true,
-      attribution:
-        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      ext: "png",
+      minZoom: 1,
+      tileSize: 256,
+      zoomOffset: 0,
+      detectRetina: false, // Disable retina to load faster
+      updateWhenIdle: true, // ✅ CRITICAL: Only load tiles when map stops moving (prevents "200 shots")
+      updateWhenZooming: false, // ✅ Don't update during zoom to reduce loads
+      keepBuffer: 3, // Slightly increased buffer for smoother panning
+      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
     }
   ).addTo(map);
 }
@@ -42,18 +61,20 @@ export function setBaseTileBounds(bounds) {
   if (baseTileLayer) {
     map.removeLayer(baseTileLayer);
   }
+  
+  // Use MapTiler raster tiles with streets-v2 style - optimized to prevent excessive loading
   baseTileLayer = L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
+    `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${MAPTILER_API_KEY}`,
     {
       maxZoom: 19,
-      keepBuffer: 6,
-      updateWhenIdle: true,
-      updateWhenZooming: false,
-      crossOrigin: true,
-      attribution:
-        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      ext: "png",
-      bounds,
+      minZoom: 1,
+      tileSize: 256,
+      zoomOffset: 0,
+      detectRetina: false,
+      updateWhenIdle: true, // ✅ Only load tiles when map stops moving (prevents "200 shots")
+      updateWhenZooming: false, // ✅ Don't update during zoom to reduce loads
+      keepBuffer: 3, // Slightly increased buffer for smoother panning
+      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
     }
   ).addTo(map);
 }

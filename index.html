@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rome Hotels Map</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="popup.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -49,52 +50,99 @@
 
       <div id="popup" class="popup hidden">
         <div class="popup-content">
-          <h3 id="popupName"></h3>
-          <div class="popup-main">
-            <div id="popupStars"></div>
-            <div class="status-display">
-              <span id="statusText" class="status-text"></span>
-              <span class="dropdown-arrow" onclick="toggleStatusDropdown(event)"
-                >▼</span
+          <!-- Green curved top line -->
+          <div class="popup-top-line"></div>
+
+          <!-- Header -->
+          <div class="popup-header">
+            <p id="popupMunicipio" class="popup-municipio">VII</p>
+            <h3 id="popupName">Hotel Name</h3>
+            <div id="popupStars" class="star-rating">
+              <span class="star-number">3</span>★
+            </div>
+          </div>
+
+          <!-- Status Selection - Dropdown -->
+          <div class="status-dropdown-section">
+            <div
+              id="statusDropdownTrigger"
+              class="status-dropdown-trigger status-verde"
+              onclick="toggleStatusDropdown(event)"
+            >
+              <span id="statusText" class="status-text status-verde"
+                >VERDE</span
               >
-              <div id="statusDropdown" class="status-dropdown hidden">
-                <div
-                  class="status-option white-option"
-                  onclick="changeStatus('White')"
-                >
-                  White
-                </div>
-                <div
-                  class="status-option green-option"
-                  onclick="changeStatus('Green')"
-                >
-                  Green
-                </div>
-                <div
-                  class="status-option yellow-option"
-                  onclick="changeStatus('Yellow')"
-                >
-                  Yellow
-                </div>
-                <div
-                  class="status-option red-option"
-                  onclick="changeStatus('Red')"
-                >
-                  Red
-                </div>
+              <span class="dropdown-arrow">▼</span>
+            </div>
+            <div id="statusDropdown" class="status-dropdown-menu hidden">
+              <div
+                class="status-option status-verde"
+                onclick="changeStatus('VERDE')"
+              >
+                VERDE
+              </div>
+              <div
+                class="status-option status-giallo"
+                onclick="changeStatus('GIALLO')"
+              >
+                GIALLO
+              </div>
+              <div
+                class="status-option status-rosso"
+                onclick="changeStatus('ROSSO')"
+              >
+                ROSSO
+              </div>
+              <div
+                class="status-option status-bianco"
+                onclick="changeStatus('BIANCO')"
+              >
+                BIANCO
               </div>
             </div>
-            <div class="phase-controls hidden">
-              <label>Phase:</label>
-              <select id="popupPhase">
-                <option value="">Reset</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
+          </div>
+
+          <!-- Phase Selection -->
+          <div class="phase-controls hidden">
+            <div class="phase-dropdown-trigger">
+              <span id="phaseDisplay" class="phase-text">Phase 1</span>
+              <span class="dropdown-arrow">▼</span>
+              <select id="popupPhase" class="phase-dropdown">
+                <option value="">Select Phase</option>
+                <option value="1">Phase 1</option>
+                <option value="2">Phase 2</option>
+                <option value="3">Phase 3</option>
               </select>
             </div>
           </div>
-          <div id="popupTech" class="tech-details"></div>
+
+          <!-- Address Section -->
+          <div id="addressSection" class="address-section">
+            <div class="address-line">
+              <span class="address-label">ADDRESS:</span>
+              <span id="addressValue" class="address-value"> Via Della Vittoria 16</span>
+            </div>
+          </div>
+
+          <!-- Coordinates Section -->
+          <div class="coordinates-section">
+            <div class="coord-row">
+              <span class="coord-label">LAT:</span>
+              <input id="coordLat" type="text" class="coord-input" readonly placeholder=" " />
+            </div>
+            <div class="coord-row">
+              <span class="coord-label">LONG:</span>
+              <input id="coordLong" type="text" class="coord-input" readonly placeholder=" " />
+            </div>
+          </div>
+
+          <!-- Technical Details (Legacy - keeping for compatibility) -->
+          <div id="popupTech" class="tech-details hidden"></div>
+
+          <!-- Notes -->
           <textarea id="popupNotes" placeholder="Add notes..."></textarea>
+
+          <!-- Actions -->
           <div class="popup-actions">
             <button onclick="saveHotel()">Save</button>
             <button onclick="closePopup()">Close</button>

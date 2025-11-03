@@ -1,10 +1,5 @@
 import { initMap } from "./map.js";
-import {
-  loadDifferenceMask,
-  loadCountriesMask,
-  removeDifferenceMask,
-  removeCountriesMask,
-} from "./countries.js";
+import { loadDifferenceMask, removeDifferenceMask } from "./countries.js";
 import { applyRomeBoundsAndSoften, removeRomeSoftener } from "./rome.js";
 import {
   loadMunicipioBoundaries,
@@ -14,16 +9,19 @@ import { loadHotels, handleHotelViewChange } from "./hotels.js";
 
 window.onload = () => {
   initMap();
-  // Apply Rome bounds to basemap and soften inside city
-  // applyRomeBoundsAndSoften();
-  // Load both dim layers and keep Italy visible
-  loadCountriesMask();
+
+  // ✅ Initialize performance optimizations
+  setTimeout(() => {
+    if (window.setupMapPerformance) {
+      setupMapPerformance();
+    }
+  }, 1000);
+
   loadDifferenceMask();
-  // Load municipi without changing the map view
   loadMunicipioBoundaries(true).then(() => {
-    // Do not call handleMunicipioViewChange() here to avoid resetting view to Rome
     loadHotels();
   });
+
   // Mask toggle
   let maskEnabled = true;
   const maskBtn = document.getElementById("maskToggle");
@@ -31,24 +29,45 @@ window.onload = () => {
     maskBtn.addEventListener("click", () => {
       maskEnabled = !maskEnabled;
       if (maskEnabled) {
-        loadCountriesMask();
         loadDifferenceMask();
-        applyRomeBoundsAndSoften();
+        // applyRomeBoundsAndSoften(); // ✅ REMOVED to prevent patina/darkening
         maskBtn.textContent = "Hide Mask";
       } else {
-        removeCountriesMask();
         removeDifferenceMask();
         removeRomeSoftener();
         maskBtn.textContent = "Show Mask";
       }
     });
   }
+
+  // ✅ DEBOUNCE view changes to prevent rapid redraws
+  let viewChangeTimeout;
   document.getElementById("viewSelect").addEventListener("change", () => {
-    handleMunicipioViewChange();
-    handleHotelViewChange();
+    clearTimeout(viewChangeTimeout);
+    viewChangeTimeout = setTimeout(() => {
+      handleMunicipioViewChange();
+      handleHotelViewChange();
+    }, 100);
   });
-  document
-    .getElementById("starFilter")
-    .addEventListener("change", handleHotelViewChange);
+
+  // ✅ DEBOUNCE star filter changes
+  let starFilterTimeout;
+  document.getElementById("starFilter").addEventListener("change", () => {
+    clearTimeout(starFilterTimeout);
+    starFilterTimeout = setTimeout(() => {
+      handleHotelViewChange();
+    }, 100);
+  });
+
   window.handleHotelViewChange = handleHotelViewChange;
+  
+  // Phase dropdown change handler
+  document.addEventListener('change', function(e) {
+    if (e.target && e.target.id === 'popupPhase') {
+      const phaseDisplay = document.getElementById('phaseDisplay');
+      if (phaseDisplay) {
+        phaseDisplay.textContent = e.target.value ? `Phase ${e.target.value}` : "Phase 1";
+      }
+    }
+  });
 };
