@@ -2,43 +2,167 @@ import { getMap } from "./map.js";
 import { getStatusColor, romanToNumber } from "./utils.js";
 import { municipioLayers } from "./municipi.js";
 import { API_URL } from "./config.js";
+import { SUPABASE_CONFIG } from "./supabase-config.js";
+
+// Initialize Supabase client - preload to avoid dynamic import delay
+let supabase = null;
+let supabaseInitPromise = null; // Promise to ensure only one initialization
+
+// Pre-initialize Supabase client (called once on module load)
+async function initSupabase() {
+  // If already initialized, return immediately
+  if (supabase) {
+    return supabase;
+  }
+  
+  // If initialization is in progress, await the existing promise
+  if (supabaseInitPromise) {
+    return await supabaseInitPromise;
+  }
+  
+  // Start initialization and store the promise
+  supabaseInitPromise = (async () => {
+    const startTime = performance.now();
+    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+    supabase = createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+    console.log(`[supabase] Initialized in ${(performance.now() - startTime).toFixed(2)}ms`);
+    return supabase;
+  })();
+  
+  return await supabaseInitPromise;
+}
+
+// Pre-initialize Supabase on module load (don't await to avoid blocking)
+initSupabase();
 
 let hotels = [];
 let currentMarkers = [];
 let currentHotel = null;
 
+// Export function to get hotels array for statistics calculation
+export function getHotels() {
+  return hotels;
+}
+
+// Highlight management (using localStorage until DB is ready)
+function getHighlightedHotels() {
+  const stored = localStorage.getItem("highlightedHotels");
+  return stored ? JSON.parse(stored) : [];
+}
+
+function saveHighlightedHotels(highlightedIds) {
+  localStorage.setItem("highlightedHotels", JSON.stringify(highlightedIds));
+}
+
+function isHotelHighlighted(hotelId) {
+  const highlighted = getHighlightedHotels();
+  return highlighted.includes(hotelId);
+}
+
+function toggleHotelHighlight(hotelId) {
+  const highlighted = getHighlightedHotels();
+  const index = highlighted.indexOf(hotelId);
+  if (index > -1) {
+    highlighted.splice(index, 1);
+  } else {
+    highlighted.push(hotelId);
+  }
+  saveHighlightedHotels(highlighted);
+  return index === -1; // Returns true if now highlighted
+}
+
 export async function loadHotels() {
   try {
-    const response = await fetch(`${API_URL}/api/hotels`);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const startTime = performance.now();
+    
+    // Try to load from cache first for instant display
+    const cacheKey = 'hotels_cache';
+    const cacheTimestampKey = 'hotels_cache_timestamp';
+    const cacheMaxAge = 5 * 60 * 1000; // 5 minutes
+    
+    const cachedData = localStorage.getItem(cacheKey);
+    const cacheTimestamp = localStorage.getItem(cacheTimestampKey);
+    const now = Date.now();
+    
+    // Load from cache if available and not expired
+    if (cachedData && cacheTimestamp && (now - parseInt(cacheTimestamp)) < cacheMaxAge) {
+      try {
+        hotels = JSON.parse(cachedData);
+        console.log(`[hotels] loaded ${hotels.length} hotels from cache (instant)`);
+        handleHotelViewChange(); // Show cached data immediately
+        
+        // Still fetch fresh data in background (don't await)
+        fetchFreshHotels(startTime);
+        return;
+      } catch (e) {
+        console.warn("[hotels] cache parse error, fetching fresh data", e);
+      }
+    }
+    
+    // No cache or expired - fetch fresh data
+    await fetchFreshHotels(startTime);
+    
+  } catch (error) {
+    console.error("[hotels] load error", error);
+    // Try to use cache as fallback
+    const cachedData = localStorage.getItem('hotels_cache');
+    if (cachedData) {
+      try {
+        hotels = JSON.parse(cachedData);
+        console.log("[hotels] using cached data as fallback");
+        handleHotelViewChange();
+      } catch (e) {
+        hotels = [];
+        handleHotelViewChange();
+      }
+    } else {
+      hotels = [];
+      handleHotelViewChange();
+    }
+  }
+}
 
-    const data = await response.json();
+async function fetchFreshHotels(startTime) {
+  try {
+    // Initialize Supabase if not already done
+    const supabaseClient = await initSupabase();
+    
+    // Fetch only needed columns for map display (exclude large location column)
+    const { data, error } = await supabaseClient
+      .from('Hotels')
+      .select('id, nome, via, civico, Latitude, Longitude, stelle, municipio, status, phase, notes, TOTroom');
+
+    if (error) throw error;
     if (!data || !Array.isArray(data)) throw new Error("Invalid data format");
 
-    // ✅ FIX: Remove 'const' - update the GLOBAL variable
+    // Map Supabase column names to frontend expected format
     hotels = data.map((r) => ({
       id: r.id,
-      hotel_name: r.hotel_name || r.Hotel_Name,
-      latitude: Number(r.latitude || r.Latitude),
-      longitude: Number(r.longitude || r.Longitude),
-      star_rating: r.star_rating || r.Star_Rating,
+      hotel_name: r.nome || r.hotel_name || r.Hotel_Name,
+      latitude: Number(r.Latitude || r.latitude),
+      longitude: Number(r.Longitude || r.longitude),
+      star_rating: r.stelle || r.star_rating || r.Star_Rating,
       municipio: r.municipio || r.Municipio,
-      status: r.status || r.Status,
-      phase: r.phase || r.Phase,
-      notes: r.notes || r.Notes,
-      address: r.address || r.Address,
+      status: r.status || r.Status || 'White', // Default to White if not set
+      phase: r.phase || r.Phase || null,
+      notes: r.notes || r.Notes || '',
+      address: r.address || r.Address || (r.via && r.civico ? `${r.via} ${r.civico}` : null),
+      totroom: r.TOTroom || r.totroom || r.TOTRoom || null,
+      via: r.via,
+      civico: r.civico,
     }));
 
-    console.log("[hotels] fetched", {
-      count: hotels.length, // Now shows global count
-      sample: hotels.slice(0, 3),
-    });
+    // Cache the data
+    localStorage.setItem('hotels_cache', JSON.stringify(hotels));
+    localStorage.setItem('hotels_cache_timestamp', Date.now().toString());
 
-    handleHotelViewChange(); // Now uses the populated global array
+    const loadTime = performance.now() - startTime;
+    console.log(`[hotels] fetched ${hotels.length} hotels from Supabase in ${loadTime.toFixed(2)}ms`);
+
+    handleHotelViewChange(); // Update with fresh data
   } catch (error) {
-    console.error("[hotels] fetch error", error);
-    hotels = []; // Clear global array on error
-    handleHotelViewChange();
+    console.error("[hotels] Supabase fetch error", error);
+    throw error; // Re-throw to be handled by caller
   }
 }
 
@@ -51,10 +175,16 @@ export function handleHotelViewChange() {
   window.hotelFilterTimeout = setTimeout(() => {
     map.closePopup();
 
-    // ✅ PROPERLY Clear all existing markers
+    // ✅ PROPERLY Clear all existing markers and their hitboxes
     currentMarkers.forEach((marker) => {
-      if (marker && map.hasLayer(marker)) {
-        map.removeLayer(marker);
+      if (marker) {
+        if (map.hasLayer(marker)) {
+          map.removeLayer(marker);
+        }
+        // Also remove hitbox if it exists
+        if (marker.hitbox && map.hasLayer(marker.hitbox)) {
+          map.removeLayer(marker.hitbox);
+        }
       }
     });
     currentMarkers = [];
@@ -63,6 +193,8 @@ export function handleHotelViewChange() {
     const initialRadius = getMarkerRadius(currentZoom);
     const view = document.getElementById("viewSelect").value;
     const starFilter = document.getElementById("starFilter").value;
+    const statusFilter = document.getElementById("statusFilter").value;
+    const phaseFilter = document.getElementById("phaseFilter").value;
 
     const normalizeMunicipioToNumber = (val) => {
       if (typeof val === "number") return val;
@@ -86,28 +218,77 @@ export function handleHotelViewChange() {
       if (view !== "full" && hotelMunicipioNum !== viewNum) return;
       if (starFilter !== "all" && hotel.star_rating != parseInt(starFilter))
         return;
+      if (statusFilter === "highlighted") {
+        // Show only highlighted hotels
+        if (!isHotelHighlighted(hotel.id)) return;
+      } else if (statusFilter !== "all" && hotel.status !== statusFilter) {
+        return;
+      }
+      // Phase filter logic
+      if (phaseFilter !== "all") {
+        if (phaseFilter === "none") {
+          // Show only hotels with no phase (null or undefined)
+          if (hotel.phase !== null && hotel.phase !== undefined) return;
+        } else {
+          // Show only hotels with the selected phase number
+          const phaseNum = parseInt(phaseFilter);
+          if (hotel.phase !== phaseNum) return;
+        }
+      }
 
       hotelsInView++;
 
+      const isHighlighted = isHotelHighlighted(hotel.id);
+      
+      // Create invisible larger hitbox for easier clicking (behind visible marker)
+      const hitboxRadius = Math.max(initialRadius + 4, 8); // At least 4px larger, minimum 8px
+      const hitbox = L.circleMarker([hotel.latitude, hotel.longitude], {
+        radius: hitboxRadius,
+        fillColor: "transparent",
+        color: "transparent",
+        weight: 0,
+        opacity: 0,
+        fillOpacity: 0,
+        interactive: true,
+        bubblingMouseEvents: false,
+      });
+      
+      // Create visible marker
       const marker = L.circleMarker([hotel.latitude, hotel.longitude], {
         radius: initialRadius,
         fillColor: getStatusColor(hotel.status),
-        color: "#000",
-        weight: 1,
+        color: isHighlighted ? "#00FFFF" : "#000", // Fluorescent blue for highlighted
+        weight: isHighlighted ? 2 : 1, // Reduced thickness for highlighted
         opacity: 1,
         fillOpacity: 0.9,
         interactive: true,
         bubblingMouseEvents: false,
       });
 
+      // Store hotel data in both markers
       marker.hotelData = hotel;
+      hitbox.hotelData = hotel;
+      
+      // Attach click handlers to both (hitbox forwards to marker's handler)
       marker.on("click", onMarkerClick);
       marker.on("touchstart", function (e) {
         e.originalEvent.preventDefault();
         onMarkerClick(e);
       });
+      
+      // Hitbox also handles clicks (makes clicking easier)
+      hitbox.on("click", onMarkerClick);
+      hitbox.on("touchstart", function (e) {
+        e.originalEvent.preventDefault();
+        onMarkerClick(e);
+      });
 
+      // Add hitbox first (so it's behind), then marker (on top)
+      hitbox.addTo(map);
       marker.addTo(map);
+      
+      // Store both in marker object for cleanup
+      marker.hitbox = hitbox;
       markersToAdd.push(marker);
     });
 
@@ -151,6 +332,8 @@ export function handleHotelViewChange() {
         view,
         viewNum,
         starFilter,
+        statusFilter,
+        phaseFilter,
         totalHotels: hotels.length,
         hotelsInView: hotelsInView,
       });
@@ -160,6 +343,8 @@ export function handleHotelViewChange() {
       view,
       viewNum,
       starFilter,
+      statusFilter,
+      phaseFilter,
       totalHotels: hotels.length,
       hotelsInView: hotelsInView,
       markersDisplayed: currentMarkers.length,
@@ -188,6 +373,18 @@ function updateMarkerSizes(zoom) {
     if (marker.setRadius) {
       marker.setRadius(newRadius);
     }
+    // Update hitbox size to maintain larger clickable area
+    if (marker.hitbox && marker.hitbox.setRadius) {
+      const hitboxRadius = Math.max(newRadius + 4, 8); // At least 4px larger, minimum 8px
+      marker.hitbox.setRadius(hitboxRadius);
+    }
+    // Preserve highlight style on zoom
+    if (marker.hotelData && isHotelHighlighted(marker.hotelData.id)) {
+      marker.setStyle({
+        color: "#00FFFF",
+        weight: 2,
+      });
+    }
   });
 }
 
@@ -195,6 +392,13 @@ function getMarkerRadius(zoom) {
   const minSize = 3,
     maxSize = 8,
     zoomRange = 15;
+  
+  // At minimum zoom (zoom 10 - full map view), apply slight reduction for better visibility
+  if (zoom === 10) {
+    return 2.5; // Reduced from 3px to 2.5px at full view only
+  }
+  
+  // At all other zoom levels, maintain current dynamic sizing
   return minSize + ((zoom - 10) / zoomRange) * (maxSize - minSize);
 }
 
@@ -248,31 +452,51 @@ function onMarkerClick(e) {
       addressValue.textContent = hotel.address || "—";
     }
 
-    // Update coordinates
-    const lat = Number(hotel.latitude);
-    const lng = Number(hotel.longitude);
-    const coordLat = document.getElementById("coordLat");
-    const coordLong = document.getElementById("coordLong");
-    if (coordLat) {
-      coordLat.value = isFinite(lat) ? lat.toFixed(5) : "";
-    }
-    if (coordLong) {
-      coordLong.value = isFinite(lng) ? lng.toFixed(5) : "";
-    }
+          // Update coordinates
+      const lat = Number(hotel.latitude);
+      const lng = Number(hotel.longitude);
+      const coordLat = document.getElementById("coordLat");
+      const coordLong = document.getElementById("coordLong");
+      if (coordLat) {
+        coordLat.value = isFinite(lat) ? lat.toFixed(5) : "";
+      }
+      if (coordLong) {
+        coordLong.value = isFinite(lng) ? lng.toFixed(5) : "";
+      }
+
+      // Update TOTroom
+      const totroomValue = document.getElementById("totroomValue");
+      if (totroomValue) {
+        totroomValue.textContent = hotel.totroom !== null && hotel.totroom !== undefined ? hotel.totroom : "—";
+      }
 
     // Update phase display and dropdown
     const phaseDisplay = document.getElementById("phaseDisplay");
     const phaseDropdown = document.getElementById("popupPhase");
     if (phaseDisplay) {
-      phaseDisplay.textContent = hotel.phase ? `Phase ${hotel.phase}` : "Phase 1";
+      phaseDisplay.textContent = hotel.phase ? `Phase ${hotel.phase}` : "No Phase";
     }
     if (phaseDropdown) {
-      phaseDropdown.value = hotel.phase || "";
-      // Update display when dropdown changes
-      phaseDropdown.addEventListener('change', function() {
+      // Set the value - use empty string for null/undefined phase
+      const phaseValue = hotel.phase ? String(hotel.phase) : "";
+      phaseDropdown.value = phaseValue;
+      
+      // Remove all existing change listeners by cloning the element
+      const newDropdown = phaseDropdown.cloneNode(true);
+      // Preserve the value after cloning
+      newDropdown.value = phaseValue;
+      phaseDropdown.parentNode.replaceChild(newDropdown, phaseDropdown);
+      
+      // Add new change listener
+      newDropdown.addEventListener('change', function() {
         const display = document.getElementById('phaseDisplay');
         if (display) {
-          display.textContent = this.value ? `Phase ${this.value}` : "Phase 1";
+          // Update display text based on selection
+          if (this.value === "" || this.value === null) {
+            display.textContent = "No Phase";
+          } else {
+            display.textContent = `Phase ${this.value}`;
+          }
         }
       });
     }
@@ -282,6 +506,9 @@ function onMarkerClick(e) {
     if (notesEl) {
       notesEl.value = hotel.notes || "";
     }
+
+    // Update highlight button state
+    updateHighlightButton(hotel.id);
 
     // Show/hide phase controls based on Italian status
     const phaseControls = document.querySelector(".phase-controls");
@@ -488,28 +715,35 @@ async function saveHotel() {
   if (!currentHotel) return;
   const id = currentHotel.id;
 
-  // Convert Italian status back to English for API
+  // Convert Italian status back to English for database
   const italianStatus = document.getElementById("statusText").textContent;
   const status = getStatusEnglish(italianStatus);
 
-  const phaseVal = document.getElementById("popupPhase").value;
+  const phaseDropdown = document.getElementById("popupPhase");
+  const phaseVal = phaseDropdown ? phaseDropdown.value : "";
   const notes = document.getElementById("popupNotes").value;
-  const phase = phaseVal === "" ? null : phaseVal;
+  // Convert empty string to null, otherwise convert to number
+  const phase = phaseVal === "" || phaseVal === null ? null : Number(phaseVal);
 
   try {
-    const response = await fetch(`${API_URL}/api/hotels/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        status,
+    const startTime = performance.now();
+    
+    // Initialize Supabase if not already done
+    const supabaseClient = await initSupabase();
+    
+    // Update hotel in Supabase - only select needed fields
+    const { data: updatedHotel, error } = await supabaseClient
+      .from('Hotels')
+      .update({
+        status: status,
         phase: phase ? Number(phase) : null,
         notes: notes || null,
-      }),
-    });
+      })
+      .eq('id', id)
+      .select('id, status, phase, notes')
+      .single();
 
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-    const updatedHotel = await response.json();
+    if (error) throw error;
 
     // Update local data
     currentHotel.status = updatedHotel.status;
@@ -522,16 +756,30 @@ async function saveHotel() {
       hotels[idx] = { ...hotels[idx], ...updatedHotel };
     }
 
-    // Update marker color (using English status for color function)
+    // Update marker - refresh view to show updated phase/status
     const marker = currentMarkers.find(
       (m) => m.hotelData && m.hotelData.id === id
     );
     if (marker) {
       marker.hotelData = { ...marker.hotelData, ...updatedHotel };
-      marker.setStyle({ fillColor: getStatusColor(updatedHotel.status) });
+      
+      // If it's a circleMarker, update style directly
+      if (marker.setStyle) {
+        marker.setStyle({ fillColor: getStatusColor(updatedHotel.status) });
+      }
+      
+      // Refresh markers to show updated phase/status (recreates markers with new data)
+      handleHotelViewChange();
     }
 
-    console.log("✅ Hotel saved successfully:", updatedHotel);
+    // Update cache after successful save (idx already found above)
+    if (idx !== -1) {
+      localStorage.setItem('hotels_cache', JSON.stringify(hotels));
+      localStorage.setItem('hotels_cache_timestamp', Date.now().toString());
+    }
+
+    const saveTime = performance.now() - startTime;
+    console.log(`✅ Hotel saved successfully in ${saveTime.toFixed(2)}ms:`, updatedHotel);
     closePopup();
   } catch (err) {
     console.error("[hotels] save error", err);
@@ -561,7 +809,52 @@ function closePopup() {
   currentHotel = null;
 }
 
+function updateHighlightButton(hotelId) {
+  const highlightBtn = document.getElementById("highlightBtn");
+  const highlightIcon = document.getElementById("highlightIcon");
+  const highlightText = document.getElementById("highlightText");
+  
+  if (!highlightBtn || !highlightIcon || !highlightText) return;
+  
+  const isHighlighted = isHotelHighlighted(hotelId);
+  
+  if (isHighlighted) {
+    highlightIcon.textContent = "★";
+    highlightIcon.style.color = "#00FFFF";
+    highlightText.textContent = "Highlighted";
+    highlightBtn.classList.add("highlighted");
+  } else {
+    highlightIcon.textContent = "☆";
+    highlightIcon.style.color = "";
+    highlightText.textContent = "Highlight";
+    highlightBtn.classList.remove("highlighted");
+  }
+}
+
+function toggleHighlight() {
+  if (!currentHotel) return;
+  
+  const wasHighlighted = toggleHotelHighlight(currentHotel.id);
+  
+  // Update button state
+  updateHighlightButton(currentHotel.id);
+  
+  // Update marker style
+  const marker = currentMarkers.find(
+    (m) => m.hotelData && m.hotelData.id === currentHotel.id
+  );
+  if (marker) {
+    marker.setStyle({
+      color: wasHighlighted ? "#00FFFF" : "#000",
+      weight: wasHighlighted ? 3 : 1,
+    });
+  }
+  
+  console.log(`Hotel ${wasHighlighted ? "highlighted" : "unhighlighted"}:`, currentHotel.id);
+}
+
 window.closePopup = closePopup;
 window.saveHotel = saveHotel;
 window.toggleStatusDropdown = toggleStatusDropdown;
 window.changeStatus = changeStatus;
+window.toggleHighlight = toggleHighlight;

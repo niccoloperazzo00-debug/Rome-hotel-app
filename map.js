@@ -11,25 +11,25 @@ const MAPTILER_API_KEY = window.MAPTILER_API_KEY || "JkKDNqB2qGVP6SPbJOtO";
 
 export function initMap() {
   map = L.map("map", {
-    zoomControl: false, // Will be added manually with custom positioning
+    zoomControl: false,
     scrollWheelZoom: true,
-    wheelDebounceTime: 100, // Increased debounce for smoother scrolling
+    wheelDebounceTime: 100,
     wheelPxPerZoomLevel: 120,
     zoomAnimation: true,
-    zoomSnap: 1, // Smoother zoom steps
-    zoomDelta: 1, // Smoother zoom steps
+    zoomSnap: 1,
+    zoomDelta: 1,
     touchZoom: true,
     doubleClickZoom: true,
     inertia: true,
-    inertiaDeceleration: 4000, // Increased for faster stopping
-    inertiaMaxSpeed: 1500, // Increased max speed for faster movement
+    inertiaDeceleration: 4000,
+    inertiaMaxSpeed: 1500,
     keyboard: true,
     boxZoom: true,
     preferCanvas: true,
-    fadeAnimation: true, // Enable smooth fade animations
-    markerZoomAnimation: true, // Enable marker animations
+    fadeAnimation: true,
+    markerZoomAnimation: true,
     transform3DLimit: 8388608,
-    worldCopyJump: false, // Prevent map jumping
+    worldCopyJump: false,
   }).setView(ROME_CENTER, 10);
 
   // ✅ Add zoom controls manually for better positioning
@@ -47,10 +47,10 @@ export function initMap() {
       minZoom: 1,
       tileSize: 256,
       zoomOffset: 0,
-      detectRetina: false, // Disable retina to load faster
-      updateWhenIdle: true, // ✅ CRITICAL: Only load tiles when map stops moving (prevents "200 shots")
-      updateWhenZooming: false, // ✅ Don't update during zoom to reduce loads
-      keepBuffer: 3, // Slightly increased buffer for smoother panning
+      detectRetina: false,
+      updateWhenIdle: true,
+      updateWhenZooming: false,
+      keepBuffer: 3,
       attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
     }
   ).addTo(map);
@@ -62,7 +62,6 @@ export function setBaseTileBounds(bounds) {
     map.removeLayer(baseTileLayer);
   }
   
-  // Use MapTiler raster tiles with streets-v2 style - optimized to prevent excessive loading
   baseTileLayer = L.tileLayer(
     `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${MAPTILER_API_KEY}`,
     {

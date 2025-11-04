@@ -1,0 +1,124 @@
+================================================================================
+PROJECT IMPROVEMENTS - REQUIREMENTS & IMPLEMENTATION PLAN
+================================================================================
+
+GENERAL NOTES:
+- Current dataset will be used until client provides email for Supabase setup
+- New dataset structure: ~750 hotels with fields: name, address, lat/long, stars, total rooms
+- Implementation approach: STEP-BY-STEP, awaiting confirmation before proceeding to next step
+- All updates should follow the new dataset structure going forward
+
+================================================================================
+REQUIREMENTS BREAKDOWN
+================================================================================
+
+1. POPUP CLICKING IMPROVEMENT
+   Status: Client reports popups work fine, issue was clicking municipio boundaries
+   Solution:
+   - Keep current pin sizes (except slight reduction at minimum zoom only)
+   - Increase invisible clickable area (hitbox) of markers for better precision
+   - Visual pin size remains unchanged
+   Priority: Medium
+
+2. MUNICIPIO CLICK BEHAVIOR - OPTION B (ENHANCED)
+   Client Choice: Info Mode toggle button
+   Implementation Details:
+   - Add toggle button "Info Mode" in header controls
+   - When Info Mode ON:
+     * Click municipio → Show statistics popup (hotel count, status breakdown, star ratings)
+     * Highlight municipio border in red
+     * NO zoom/center/change view
+   - When Info Mode OFF:
+     * Click municipio → Only highlight border in red
+     * NO statistics shown
+     * NO zoom/center/change view
+   - Remove current zoom/fit bounds behavior completely
+   Priority: High
+
+3. STATUS FILTER DROPDOWN
+   Requirement: Filter hotels by status (like municipio and star filters)
+   Implementation:
+   - Add dropdown in header: "All" / "Green" / "Yellow" / "Red" / "White"
+   - Show/hide hotels based on selected status
+   - Works with existing municipio and star filters
+   Priority: High
+
+4. HIGHLIGHT/BOOKMARK FEATURE
+   Requirements:
+   - Manage highlights from inside the hotel popup (mark/unmark button)
+   - Save highlight status to database
+   - Visual: Thick fluorescent blue outline (replaces black outline)
+   - Add filter dropdown in header to show only highlighted hotels
+   - Highlights persist until manually removed
+   - Works across all status types
+   Data Storage: Database field needed for highlighted status
+   Priority: High
+
+5. PIN SIZE ADJUSTMENT (CLARIFICATION)
+   Client Clarification: Pins are fine at current size
+   Implementation:
+   - ONLY reduce size slightly at MINIMUM zoom level (full map view)
+   - Keep current sizes at all other zoom levels
+   - Purpose: Better visibility of all ~750-1000 pins at full view
+   Priority: Medium
+
+6. MASK REMOVAL
+   Requirement: Remove mask functionality entirely
+   Files to check: countries.js, rome.js, and related mask code
+   Priority: Low (cleanup)
+
+================================================================================
+DATASET STRUCTURE (NEW)
+================================================================================
+
+Fields from "SUAR HOTEL FINAL DATASET.xlsx":
+1. nome (name)
+2. via + civico (full address)
+3. Latitude
+4. Longitude
+5. stelle (stars)
+6. TOTroom (total rooms)
+
+Note: ~750 hotels total
+
+Current dataset structure may differ - need to adapt import/processing code
+when switching to new dataset after Supabase setup.
+
+================================================================================
+IMPLEMENTATION ORDER (TENTATIVE)
+================================================================================
+
+Step 1: Remove mask functionality (cleanup, easy) ✅ COMPLETED
+Step 2: Status filter dropdown (adds filtering capability) ✅ COMPLETED
+Step 3: Municipio click behavior - Option B (Info Mode toggle) ✅ COMPLETED
+Step 4: Highlight/bookmark feature (requires DB field + UI) ✅ COMPLETED
+Step 5: Pin size adjustment at minimum zoom only ✅ COMPLETED
+Step 6: Popup clicking improvement (increase hitbox) ✅ COMPLETED
+
+================================================================================
+TECHNICAL NOTES
+================================================================================
+
+- Highlight feature will need:
+  * New database field (or local storage until DB ready)
+  * CSS for fluorescent blue outline
+  * Button in popup.html
+  * Filter dropdown in index.html header
+  * Logic in hotels.js to handle highlighting
+
+- Info Mode toggle needs:
+  * Button in header controls
+  * Statistics calculation function (count hotels, status breakdown, stars)
+  * Modified municipio click handler
+
+- Status filter needs:
+  * Dropdown in index.html
+  * Logic in handleHotelViewChange() in hotels.js
+
+- Mask removal:
+  * Check countries.js, rome.js
+  * Remove mask toggle button from index.html
+  * Clean up related functions
+
+================================================================================
+

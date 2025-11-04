@@ -1,6 +1,4 @@
-import { initMap } from "./map.js";
-import { loadDifferenceMask, removeDifferenceMask } from "./countries.js";
-import { applyRomeBoundsAndSoften, removeRomeSoftener } from "./rome.js";
+import { initMap, getMap } from "./map.js";
 import {
   loadMunicipioBoundaries,
   handleMunicipioViewChange,
@@ -17,28 +15,9 @@ window.onload = () => {
     }
   }, 1000);
 
-  loadDifferenceMask();
   loadMunicipioBoundaries(true).then(() => {
     loadHotels();
   });
-
-  // Mask toggle
-  let maskEnabled = true;
-  const maskBtn = document.getElementById("maskToggle");
-  if (maskBtn) {
-    maskBtn.addEventListener("click", () => {
-      maskEnabled = !maskEnabled;
-      if (maskEnabled) {
-        loadDifferenceMask();
-        // applyRomeBoundsAndSoften(); // ✅ REMOVED to prevent patina/darkening
-        maskBtn.textContent = "Hide Mask";
-      } else {
-        removeDifferenceMask();
-        removeRomeSoftener();
-        maskBtn.textContent = "Show Mask";
-      }
-    });
-  }
 
   // ✅ DEBOUNCE view changes to prevent rapid redraws
   let viewChangeTimeout;
@@ -59,6 +38,44 @@ window.onload = () => {
     }, 100);
   });
 
+  // ✅ DEBOUNCE status filter changes (includes highlight filter)
+  let statusFilterTimeout;
+  document.getElementById("statusFilter").addEventListener("change", () => {
+    clearTimeout(statusFilterTimeout);
+    statusFilterTimeout = setTimeout(() => {
+      handleHotelViewChange();
+    }, 100);
+  });
+
+  // ✅ DEBOUNCE phase filter changes
+  let phaseFilterTimeout;
+  document.getElementById("phaseFilter").addEventListener("change", () => {
+    clearTimeout(phaseFilterTimeout);
+    phaseFilterTimeout = setTimeout(() => {
+      handleHotelViewChange();
+    }, 100);
+  });
+
+  // ✅ Info Mode toggle
+  const infoModeBtn = document.getElementById("infoModeToggle");
+  if (infoModeBtn) {
+    infoModeBtn.addEventListener("click", () => {
+      const isOn = infoModeBtn.textContent.includes("ON");
+      infoModeBtn.textContent = isOn ? "Info Mode: OFF" : "Info Mode: ON";
+      infoModeBtn.style.backgroundColor = isOn ? "#95a5a6" : "#3498db";
+      infoModeBtn.style.color = "#fff";
+      
+      // Close any open info popups when toggling off
+      if (isOn) {
+        const map = getMap();
+        if (map) {
+          map.closePopup();
+        }
+      }
+    });
+    // Button styles are handled by CSS (.info-mode-btn)
+  }
+
   window.handleHotelViewChange = handleHotelViewChange;
   
   // Phase dropdown change handler
@@ -66,7 +83,8 @@ window.onload = () => {
     if (e.target && e.target.id === 'popupPhase') {
       const phaseDisplay = document.getElementById('phaseDisplay');
       if (phaseDisplay) {
-        phaseDisplay.textContent = e.target.value ? `Phase ${e.target.value}` : "Phase 1";
+        // Use "No Phase" when value is empty, not "Phase 1"
+        phaseDisplay.textContent = e.target.value ? `Phase ${e.target.value}` : "No Phase";
       }
     }
   });

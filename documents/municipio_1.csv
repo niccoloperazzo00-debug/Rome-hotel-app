@@ -1,0 +1,540 @@
+id,nome,via,civico,Latitude,Longitude,stelle,totalePostiLetto,TOTroom,2room,2room_1,3room,Email,Tel,Website,municipio,numero_rom,id_municip
+1,163 Boutique Hotel,,"163",41.8969772,12.4872871,1,13,7,2,4,1,info@163boutiquehotel.com,685386444,,1,I,1
+4,69 Suite Boutique Hotel,,"69",41.8992813,12.4912527,2,19,7,2,1,2,iolematilde@gmail.com,3332461025,,1,I,1
+5,939 Hotel,,"94",41.903117,12.4754549,3,24,16,10,4,2,hotel939@hotmail.com,668300312,,1,I,1
+6,Hotel Aberdeen,,"48",41.9026249,12.4939786,3,69,37,10,22,5,,,,1,I,1
+8,Aca Hotel Viminale,,"36",41.899602,12.492923,3,46,23,2,19,2,939srl@pec.it,3939249008,,1,I,1
+9,Hotel Accademia,,"75",41.9018066,12.4838041,3,167,74,13,34,23,,,,1,I,1
+11,Hotel Adriano,,"2",41.902403,12.475703,3,191,80,6,51,9,,,,1,I,1
+12,Adrianus Hotel,,"35",41.8991399,12.4713339,2,14,7,,7,,hadrianussrl@gmail.com,3477563616,,1,I,1
+13,Hotel Adriatic,,"25",41.9043902,12.4622868,2,63,41,19,22,,,,,1,I,1
+14,Hotel Al Sanpietrino,,"43",41.9119083,12.4564414,2,16,8,,5,3,,,,1,I,1
+15,Al Viminale Hill Inn Hotel,,"38",41.9002489,12.4959438,2,18,9,,9,,,,,1,I,1
+16,Hotel Invictus,,"15",41.9070668,12.4966683,2,24,13,2,11,,sandelsrls@gmail.com,3939985438,,1,I,1
+17,Hotel Abruzzi,,"69",41.8993916,12.4771627,3,44,19,2,10,6,,,,1,I,1
+19,Hotel Casali,,"95",41.8992831,12.5005591,2,36,20,5,14,1,"0",0,,1,I,1
+20,Hotel Colonna Suite del Parlamento,,"41",41.9003904,12.4792049,2,16,7,1,3,3,info@colonnasuite.com,669208008,,1,I,1
+21,Hotel Concordia,,"14",41.9038621,12.4849143,3,48,24,1,22,1,info@concordiahotel.it,66791953,https://www.concordiahotel.it/it/,1,I,1
+22,Hotel Del Senato,,"73",41.8991751,12.4773018,3,132,56,4,34,12,,,,1,I,1
+23,Hotel della Torre Argentina,,"102",41.896172,12.475935,3,117,59,10,42,5,scorteggiani@hotmail.com,66833886,,1,I,1
+24,Hotel Delle Regioni,,1 C,41.9043511,12.4865051,3,21,11,1,10,,fpdarc@gmail.com,3384990507,,1,I,1
+25,Hotel Demetra,,"8",41.900698,12.496765,4,60,28,4,16,8,amministrazionesharkei@gmail.com,688373410,,1,I,1
+26,Hotel Diffuso Condotti Palace,,59 B,41.9063259,12.4808069,1,68,32,,29,2,,,,1,I,1
+27,Hotel Domus Rea,,"31",41.9049481,12.5003664,3,42,24,6,18,,info@domusmearoma.com,6486496,,1,I,1
+28,Hotel Farini,,"52",41.8985425,12.4994893,1,12,7,3,3,1,risinter1@gmail.com,3333317821,,1,I,1
+30,Hotel Fenicia,,"20",41.9021999,12.5045539,2,22,11,2,7,2,shikdargroup@pec.it,6490342,,1,I,1
+31,Hotel Floris,,"251",41.9018069,12.4945889,3,59,26,2,16,7,info@florishotel.it,64824824,www.florishotel.it,1,I,1
+32,Hotel Gabriele,,"76",41.898959,12.5002938,1,17,8,2,3,3,http://www.hotelgabrieleroma.com/,64884434,http://www.hotelgabrieleroma.com/,1,I,1
+33,Hotel Grantorino Suite,,"150",41.8999745,12.4968908,1,15,8,2,5,1,,,,1,I,1
+34,Hotel Aphrodite,,"90",41.9013867,12.5041419,4,117,62,16,38,7,info@hotelaphrodite.com,688376120,www.hotelaphrodite.com,1,I,1
+35,Hotel Dina,,"62",41.8992162,12.499877,3,69,30,3,18,6,info@hoteldina.it,64818885,www.hoteldina.it,1,I,1
+36,Hotel King,,"131",41.9041127,12.4870591,3,130,72,21,44,7,info@hotelking.net,64880878,http://www.hotelkingroma.com,1,I,1
+37,Hotel La Reggia Dei Principi,,"38",41.9002489,12.4959438,2,13,7,1,6,,info@residenzadeiprincipi.com,3203665381,www.residenzadeiprincipi.com,1,I,1
+38,Hotel Magica Luna,,"17",41.9099516,12.4973164,1,19,10,1,9,,m.marinelli@magicalunahotel.com,694326569,,1,I,1
+39,Marcella Royal Hotel,,"104",41.9078317,12.4980911,4,162,87,23,55,7,direzione@mercallaroyalhotel.com,642014591,https://www.marcellaroyalhotel.com,1,I,1
+40,Hotel Millerose,,"58",41.8989442,12.4993101,1,20,10,1,8,1,,,,1,I,1
+42,Hotel Nazionale,,"131",41.9010178,12.4778738,4,293,103,3,40,30,info@hotelnazionale.it,6695001,,1,I,1
+43,Hotel Ottocento,,"17",41.9041721,12.4875,4,60,33,7,25,1,info@albergottocento.it,642011900,,1,I,1
+44,Hotel Palazzo Caruso,,"5",41.9037593,12.4880986,4,24,12,,12,,info@hotelpalazzocaruso.it,39066833379,,1,I,1
+45,Hotel Ponte Sisto,,"64",41.8932457,12.4718032,4,245,103,2,68,25,info@hotelpontesisto.it,66863100,www.hotelpontesisto.it,1,I,1
+46,Hotel Relais Manzoni,,"14",41.8910181,12.5096265,3,14,11,8,3,,info@relaismanzoni.it,685301113,www.relaismanzoni.it,1,I,1
+47,Hotel Roma Palace,,"67",41.8988202,12.5000552,1,22,10,1,6,3,romapalace67@gmail.com,3896494203,,1,I,1
+48,Hotel Saldel Giubileo,,"15",41.9070668,12.4966683,2,21,13,5,8,,sandelsrls@gmail.com,3939985438,,1,I,1
+49,Hotel san valentino,,"55",41.9105885,12.4654565,3,61,38,15,23,,aldocirulli@gmail.com,3939249008,,1,I,1
+50,Hotel Scott House,,"30",41.8988934,12.500825,3,88,34,6,3,24,amministrazionesharkei@gmail.com,688373410,,1,I,1
+51,Hotel Stadler Due,,"13",41.9033759,12.5024959,1,21,10,2,5,3,hotelstadler2@gmail.com,64466785,,1,I,1
+52,Alex Square Hotel,,"88",41.9033809,12.5065237,3,30,15,1,13,1,hotelalex.sq88@gmail.com,3248321035,,1,I,1
+53,Hotel Alexis,,"29",41.9045935,12.5004452,1,19,12,5,7,,,,,1,I,1
+55,Hotel Alpi,,"84",41.9051851,12.5026749,4,99,48,4,37,7,,,,1,I,1
+56,Hotel Amalfi,,"278",41.8963462,12.4992317,3,42,22,6,12,4,,,,1,I,1
+58,Hotel Anahi,,"65",41.9094851,12.474671,2,25,17,9,8,,,,,1,I,1
+59,Hotel Angel,,"43",41.9059535,12.4715743,2,24,11,1,7,3,,,,1,I,1
+61,Hotel Antico Palazzo Rospigliosi,,"21",41.8973989,12.4976494,4,85,39,6,21,11,,,,1,I,1
+63,Apollo Boutique Hotel,,"2",41.9124328,12.4687729,4,25,14,3,11,,apolloboutiquehotel@gmail.com,639745319,www.apolloboutiquehotel.com,1,I,1
+65,Hotel Ara Pacis,,"11",41.9051874,12.4724411,3,71,37,15,12,8,,,,1,I,1
+68,Hotel Argentina,,"47",41.8995596,12.4981896,3,25,15,6,8,1,,,,1,I,1
+69,Hotel Ariston,,"16",41.8989672,12.5012378,4,167,82,10,60,11,robertodirienzo7@gmail.com,3464993570,,1,I,1
+71,Hotel Artemide ,,"22",41.9008196,12.4936532,4,198,91,4,67,20,,,,1,I,1
+73,Hotel Artorius,,"13",41.8971481,12.490305,2,20,10,2,6,2,,,,1,I,1
+74,Hotel Assisi,,27 A,41.9022693,12.5049111,3,35,18,4,11,3,,,,1,I,1
+77,Hotel Atlante Star,,"34",41.9048927,12.4619055,4,101,59,25,26,8,,,,1,I,1
+79,Hotel Barberini,,3 5,41.9026231,12.4891402,4,73,35,5,26,,,,,1,I,1
+80,Barocco Hotel,,"4",41.9039253,12.488065,4,78,37,7,23,3,info@hotelbarocco.com,64872001,https://www.hotelbarocco.com,1,I,1
+81,Basilica Hotel,,85 A,41.8978618,12.4963083,3,118,54,10,24,20,info@basilicahotel.it,647824414,,1,I,1
+82,Hotel Beauty,,"35",41.8968393,12.5017118,1,13,8,3,5,,,,,1,I,1
+87,Hotel Benjamin,,"31",41.9064881,12.4633912,1,24,15,6,9,,,,,1,I,1
+88,Hotel Best Roma,,"49",41.8927945,12.5115022,4,44,27,12,13,2,info@hotelbestroma.com,677076928,,1,I,1
+89,Hotel bixio,,"46",41.8934102,12.5085419,1,25,12,,11,1,,,,1,I,1
+92,Hotel Bolognese,,"15",41.9069939,12.5014607,2,25,14,5,7,2,,,,1,I,1
+93,Borghese Contemporary Hotel,,"84",41.9035775,12.4767865,4,49,23,3,16,2,info@borghesecontemporaryhotel.com,648904040,www.borghesecontemporaryhotel.com,1,I,1
+94,Hotel Bramante,,"25",41.9031913,12.4603732,2,45,32,16,8,4,,,,1,I,1
+96,C10 Boutique Hotel,,"9",41.8940657,12.4745814,3,14,7,,7,,info@thespanishsuite.com,63225064,,1,I,1
+97,Hotel Cambridge ,,"87",41.903402,12.505986,3,86,45,10,29,6,,,,1,I,1
+98,Hotel Camelia,,"36",41.9058301,12.5008611,3,73,40,10,27,3,,,,1,I,1
+100,Hotel Canova,,"9",41.8975585,12.4954281,3,42,21,2,18,,,,,1,I,1
+101,Hotel Capri,,"13",41.9033759,12.5024959,1,14,8,3,4,1,hotelcapriroma@hotmail.com,6491367,,1,I,1
+102,Hotel Caracciolo,,"86",41.8952113,12.508598,3,25,14,3,11,,,,,1,I,1
+104,Hotel Carlo Alberto,,"43",41.8960966,12.5012367,1,14,11,8,3,,,,,1,I,1
+105,Csa Couper Hotel,,"46",41.899094,12.481367,3,29,17,7,8,2,amministrazione@thecouper.it,3513049433,,1,I,1
+109,Hotel Cavour,,"47",41.8995596,12.4981896,2,80,37,9,19,4,,,,1,I,1
+110,CC Palace Hotel,,"37",41.9009346,12.4927171,4,69,37,5,32,,centralcityroma@gmail.com,3335369120,,1,I,1
+111,Central Rome Hotel 6,,"77",41.8996164,12.5002273,1,25,12,4,4,3,malinghisrls.hotel@gmail.com,3923520981,,1,I,1
+112,Hotel Cervia,,"55",41.904487,12.5045712,1,81,35,8,13,9,,,,1,I,1
+113,Hotel Champagne Garden,,"3",41.9039754,12.504037,4,35,19,3,16,,,,,1,I,1
+114,Hotel Champagne Palace,,"82",41.8987812,12.5007886,4,153,78,9,64,4,,,,1,I,1
+115,Charme spagna boutique hotel,,"37",41.9033557,12.4824533,3,23,11,2,7,1,cdfhotellerie@legalmail.it,3355370423,,1,I,1
+116,Hotel Charter,,"30",41.8988934,12.500825,2,25,14,3,11,,,,,1,I,1
+117,Chic & Town Hotel,,"31",41.9034032,12.4844812,1,19,10,2,7,1,chicandtown@gmail.com,669190491,www.chictown.it,1,I,1
+120,Hotel Cisterna Trastevere,,"7",41.88857,12.4714748,2,43,19,1,12,6,,,,1,I,1
+121,Hotel Clodio,,"10",41.9198539,12.4567523,4,196,114,32,82,,info@hotelclodio.it,63721122,www.hotelclodio.it,1,I,1
+122,Cloud Nine Hotel,,"243",41.9074132,12.4622053,1,17,11,5,6,,info@cloud9rom.com,3920283595,www.cloud9roma.com,1,I,1
+123,Colonna Palace Hotel,,"12",41.9006398,12.4790291,4,182,104,43,45,15,colonnapalace@itihotels.it,6675191,,1,I,1
+125,Hotel Colors,,"31",41.9064881,12.4633912,1,12,8,4,4,,,,,1,I,1
+126,Hotel Colosseum,,"8",41.8960779,12.4960262,3,97,46,3,35,8,,,,1,I,1
+127,Hotel Colombia,,"15",41.9008676,12.4965965,3,98,45,2,33,10,,,,1,I,1
+128,Hotel Columbus,,"33",41.9021177,12.4609569,4,186,92,23,44,25,,,,1,I,1
+130,Hotel Contilia,,"79",41.8983611,12.5007886,3,132,61,7,37,17,,,,1,I,1
+131,Coronari Palace Hotel,,"13",41.9005404,12.4718913,3,31,16,2,13,1,valerioleopoldoceccarelli@gmail.com,3397290595,,1,I,1
+132,Hotel Cortina,,"18",41.9009454,12.4937967,3,25,14,5,7,2,,,,1,I,1
+133,Hotel Cressy,,"27",41.9046237,12.4994027,1,25,10,2,2,5,,,,1,I,1
+134,Hotel Croce di Malta,,"28",41.9047736,12.4812964,2,42,25,10,14,,,,,1,I,1
+135,Crosti Hotel,,"54",41.9062733,12.5014159,3,24,14,4,10,,,,,1,I,1
+136,d-o-m Hotel,,"131",41.8974309,12.467203,5,44,23,2,21,,info@domhotelroma.com,66832144,,1,I,1
+137,Daniel's Hotel,,"107",41.9041327,12.4806287,4,25,14,3,11,,info@danielshotel.it,669380203,,1,I,1
+138,Hotel Dei Consoli,,"2",41.9064732,12.4601419,4,59,28,2,21,5,,,,1,I,1
+139,Hotel Dei Mellini,,"81",41.9073804,12.4724561,4,178,80,4,58,14,,,,1,I,1
+140,Hotel Dei Mille,,7 B,41.9036537,12.5032233,3,71,41,15,22,4,info@hoteldeimille.it,6491313,,1,I,1
+141,Hotel Dei Quiriti,,"198",41.9091417,12.463005,1,16,10,4,6,,quiriti@tiscali.it,636005389,,1,I,1
+142,Hotel Delle Regioni,,"1",41.9043511,12.4865051,3,21,11,1,10,,,,,1,I,1
+143,Hotel Delle Rose,,"62",41.8992162,12.499877,1,16,9,2,7,,,,,1,I,1
+144,Dem Hotel,,"15",41.8999622,12.4930154,2,13,8,3,5,,alfi1971@hotmail.it,3389196920,,1,I,1
+145,Hotel Demetra Capitolina,,"58",41.8993039,12.4998442,2,25,13,1,12,,,,,1,I,1
+148,divina luxury Hotel s,,"29",41.9071468,12.4878389,4,73,31,,21,9,fernando@lacertosa.it,3389615681,,1,I,1
+149,Hotel Doge,,"106",41.9034057,12.4851532,2,25,12,1,9,2,,,,1,I,1
+150,Hotel Dolomiti,,"11",41.9053853,12.5045229,3,48,22,4,12,4,,,,1,I,1
+152,Hotel Domus Aurea ,,"32",41.904421,12.4999941,3,87,49,11,38,,,,,1,I,1
+153,Hotel Domus Aventina,,11 B,41.8814947,12.4841467,3,54,26,4,16,6,clarionimanuel@yahoo.it,3662478279,,1,I,1
+154,Domus Colosseo Hotel,,"37",41.8880798,12.4955615,3,24,11,1,8,1,alexxandraferrara@gmail.com,3273827771,,1,I,1
+155,Doria Palace Boutique Hotel,,"4",41.8966123,12.499509,4,24,14,4,10,,info@doriapalace.com,64465888,http://www.doriapalace.com/it/,1,I,1
+156,Hotel Duca D'alba,,"14",41.8947796,12.4918283,4,67,31,5,18,6,info@hotelducadalba.com,6484471,,1,I,1
+157,Hotel Ducale,,"2",41.8924238,12.5129598,2,11,7,3,4,,htlducale@hotmail.com,670300026,www.hotelducalerome.com,1,I,1
+158,Eccelso Hotel,,"3",41.9067928,12.4591874,3,23,12,1,11,,info@eccelsohotel.com,639751626,,1,I,1
+160,Hotel Embassy,,"6",41.9056233,12.4954563,3,82,40,9,18,11,,,,1,I,1
+162,Hotel Emona Aquaeductus,,"23",41.8909559,12.5125279,4,52,24,3,15,5,,,,1,I,1
+164,Esposizione Boutique Hotel,,"66",41.899339,12.491388,3,17,8,2,3,3,iolematilde@gmail.com,3332461025,,1,I,1
+165,Esposizione Palace Hotel,,"66",41.899339,12.491388,1,19,9,1,6,2,iolematilde@gmail.com,3332461025,,1,I,1
+166,Hotel Esquilino,,"29",41.8978231,12.4969563,2,25,12,,11,1,,,,1,I,1
+167,Hotel Euro Quiris,,"64",41.9021198,12.5054931,1,17,9,3,4,2,,,,1,I,1
+171,Hotel Everest,,"47",41.8995596,12.4981896,2,23,10,3,3,2,,,,1,I,1
+172,Hotel Everest Inn Rome Srl,,"243",41.901484,12.4940831,2,24,13,5,5,3,info@everestinnrome.it,645471449,www.everestinnrome.it,1,I,1
+174,F.D.S. Hotel,,"123",41.9016315,12.4955914,2,23,13,5,6,2,info@dharmahotel.it,64814085,,1,I,1
+176,Hotel Ferrarese,,"76",41.898959,12.5002938,2,63,24,2,9,9,ad.roma2021@gmail.com,64743410,,1,I,1
+177,Hotel Fiorenza,,"64",41.9021198,12.5054931,1,25,12,1,9,2,,,,1,I,1
+178,Hotel Firenze,,"106",41.9034057,12.4851532,2,25,16,7,9,,,,,1,I,1
+179,Flower Garden Hotel,,"7",41.9010816,12.4968819,3,62,28,3,19,4,flowergarden@blueglobehotels.com,647824096,,1,I,1
+181,Hotel Fontana,,"96",41.9006339,12.4832717,3,52,25,4,15,6,,,,1,I,1
+182,Hotel Fortyseven,,"47",41.8897311,12.4813454,4,136,60,,46,12,,,,1,I,1
+183,Hotel Forum,,"25",41.8939108,12.4876358,4,164,78,20,34,20,,,,1,I,1
+185,Hotel Franklin,,"29",41.9127213,12.4532572,3,40,22,4,18,,melodysrl2017@pec.it,639746236,,1,I,1
+186,G55 Design Hotel,,"55",41.8961808,12.4787721,3,24,10,,7,2,info@g55designhotel.com,63225064,,1,I,1
+187,Hotel Galileo,,"33",41.9058213,12.5030431,3,89,39,2,24,13,,,,1,I,1
+188,Gallery Hotel,,"50",41.9045684,12.4919999,1,17,8,,7,1,info@galleryhotel.it,3346844363,,1,I,1
+189,Hotel Galli,,"20",41.9021999,12.5045539,2,25,12,2,8,1,,,,1,I,1
+192,Hotel Giamaica,,"13",41.9033759,12.5024959,1,17,9,2,6,1,,,,1,I,1
+193,Hotel Giglio Dell'opera,,"14",41.9001455,12.4984589,3,151,61,6,25,26,hotelgigliodelloperapalacesrl@gmail.com,6484401,www.gigliodellopera.it,1,I,1
+195,Gioberti Art Hotel,,"23",41.8994403,12.500933,4,145,68,13,37,14,,,,1,I,1
+196,Hotel Giorgina,,"67",41.8988202,12.5000552,2,95,36,5,16,6,,,,1,I,1
+197,Hotel Giugiu,,"8",41.900698,12.496765,1,24,10,1,5,3,,,,1,I,1
+198,Hotel Giulio Cesare,,"287",41.9115739,12.4695646,4,145,76,16,51,9,,,,1,I,1
+199,Giuturna Boutique Hotel,,"153",41.9024229,12.4855655,3,18,9,,9,,amministrazione@giuturnaboutiquehotel.com,662289629,,1,I,1
+200,Hotel Gloria,,"30",41.8988934,12.500825,1,17,10,3,7,,,,,1,I,1
+201,Hotel Golden,,"84",41.9092964,12.4899706,2,24,13,4,7,2,,,,1,I,1
+205,Grand Hotel Via Veneto,,"155",41.908473,12.4897674,5,210,121,32,89,,reservations@ghvv.it,3906487881,www.ghvv.it,1,I,1
+207,Hotel Grifo,,"144",41.8960524,12.4907955,2,29,19,11,6,2,angelo@hotelgrifo.com,3663642651,,1,I,1
+208,Harry's Bar Trevi Hotel & Restaurant,,"10",41.9002976,12.4838988,5,25,13,1,12,,sm.harrystrevi@cremonini.com,669940704,https://hotelharrysbartrevi.com/,1,I,1
+209,Hearth Hotel,,"2",41.9074828,12.4543373,3,43,22,4,16,1,,,,1,I,1
+210,Hotel Hiberia,,"7",41.8971916,12.486874,3,100,40,8,18,6,,,,1,I,1
+211,Hotel Histoire Romantique,,"77",41.8983611,12.5007886,3,24,14,4,10,,,,,1,I,1
+212,Hotel Hollywood Stella Elsa,,"79",41.8983611,12.5007886,2,25,17,9,8,,,,,1,I,1
+214,Hotel 4 Coronati,,"262",41.8874569,12.5019983,2,18,9,1,7,1,hotel4coronati@gmail.com,690285398,www.4coronati.it,1,I,1
+215,Hotel 53,,"53",41.9048702,12.489801,3,25,14,3,11,,info@lhotel53.com,642014708,www.lhotel53.com,1,I,1
+216,Hotel Acropoli,,"63",41.8988201,12.5000537,2,132,52,14,11,12,,,,1,I,1
+217,Hotel Ad Suites Nazionale,,"251",41.9018069,12.4945889,3,18,8,1,4,3,info@ad-suites.com,686357604,,1,I,1
+218,Hotel Ad Suites Nazionale,,"251",41.9018069,12.4945889,3,18,8,1,4,3,info@ad-suites.com,686357604,,1,I,1
+219,Hotel Agora',,"80",41.9015178,12.5039717,3,90,22,1,20,1,info@hotelagoraroma.com,644361278,http://hotelagoraroma.com,1,I,1
+223,Hotel Alius,,"243",41.901484,12.4940831,1,19,10,1,9,,valvo1947@tiscali.it,670453613,,1,I,1
+224,Hotel Anacapri,,"13",41.9033759,12.5024959,2,15,7,1,4,2,hrcsrl1@legalmail.it,644241938,,1,I,1
+225,Hotel Anfiteatro Flavio,,"130",41.8958806,12.4905602,3,29,17,8,6,3,info@anfiteatroflavio.com,64740704,,1,I,1
+226,Hotel Anglo Americano,,"12",41.9030696,12.489073,4,270,114,9,62,36,info@hotelangloamericano.it,6472941,,1,I,1
+228,Hotel Antica Locanda,,"83",41.8962269,12.4908402,3,25,12,1,9,2,germani77@hotmail.com,6484894,www.anticalocandaroma.it,1,I,1
+230,Hotel Arcangelo,,"15",41.9065605,12.4649736,3,52,33,14,19,,info@hotelarcangeloroma.it,66874143,,1,I,1
+232,Hotel Argentina Residenza Style Hotel,,"47",41.8954633,12.4761558,4,24,12,,12,,info@argentinastylehotel.com,391000000000,http://www.argentinastylehotel.com/,1,I,1
+233,Hotel Aristotele,,"87",41.903402,12.505986,2,16,11,7,3,1,hotelalex88@gmail.com,3248321035,,1,I,1
+234,Hotel Artromano,,"64",41.9042753,12.5060308,2,11,8,5,3,,risinternazionale@pec.it,684240927,,1,I,1
+235,Hotel Ascot,,"22",41.904909,12.4994276,2,18,11,5,5,1,info@hotelascotroma.com,64741675,,1,I,1
+236,Hotel Astoria Golden Gate,,"34",41.9033702,12.5040575,2,15,8,1,7,,goldensrl2022@pec.it,3791098126,,1,I,1
+238,Hotel Atelier 800,,"294",41.8990497,12.4668889,2,13,7,3,3,,info@atelier800.com,66872778,www.atelier800.com,1,I,1
+239,Hotel Auditorium Mecenate,,"44",41.894841,12.5012924,1,20,10,1,8,1,info@auditoriumdimecenate.com,64881464,,1,I,1
+241,Hotel Aurum Roma Olympic,,2:00 AM,41.9067305,12.4612101,4,145,77,22,43,11,olympic@aurumhotels.it,66896650,www.aurumhotels.it/grand-hotel-olympic-roma-centro-lazio,1,I,1
+242,Hotel Aventino,,"10",41.8829443,12.4803304,3,53,21,,11,9,info@aventinohotels.com,6570057,www.aventinohotels.com,1,I,1
+243,Hotel Azzurra,,"25",41.9025996,12.4872678,2,22,10,3,3,3,hotelazzurra@hotmail.com,64746531,www.hotelazzurra.com,1,I,1
+244,Hotel Balilla,,"1",41.893328,12.5114525,3,18,9,,9,,balilla2023@legalmail.it,37129990659,,1,I,1
+245,Hotel Barrett,,"47",41.8954633,12.4761558,3,49,20,,11,9,info@hotelbarrett.it,66868481,,1,I,1
+246,Hotel Beauty Palace,,79 A,41.8983611,12.5007886,2,25,14,3,11,,vertexpalace79@gmail.com,3892006589,,1,I,1
+250,Hotel Big Bang,,"9",41.9000259,12.4981659,1,26,12,4,3,4,hotelbigbang@gmail.com,3356229068,www.hotelbigbang.it,1,I,1
+251,Hotel Blue Marine Suites Rome,,"20",41.9039121,12.4866158,3,24,12,,12,,info@bluemarine.it,3471054896,http://bluemarinesuiteromacentro.it,1,I,1
+252,Hotel Bolivar,,"6",41.897072,12.4861387,4,74,30,1,14,15,info@bolivarhotel.com,66791614,www.bolivarhotel.eu,1,I,1
+254,Hotel Boutique Nazionale,,"66",41.899339,12.491388,3,16,8,,8,,siciliano.dante85@gmail.com,3886430975,,1,I,1
+256,Hotel California,,"39",41.8991522,12.4995549,3,94,43,1,34,7,,,,1,I,1
+257,Hotel Campidoglio,,"85",41.8980907,12.5009903,3,24,13,3,9,1,,,,1,I,1
+258,Hotel Campo de' Fiori,,"6",41.8956378,12.4727897,4,61,23,1,6,16,info@hotelcampodefiori.com,668806865,www.hotelcampodefiori.com,1,I,1
+260,Hotel Caravaggio,,"73",41.8993043,12.4927824,3,22,13,4,9,,hotelesesuitessrls@legalmail.it,64873261,,1,I,1
+261,Hotel Caravaggio 2,,"73",41.8993043,12.4927824,1,11,7,3,4,,hotelesesuitessrls@legalmail.it,64873261,,1,I,1
+263,Hotel Carmel,,"11",41.8864685,12.467981,2,20,11,5,3,3,reservation@hotelcarmel.it,65809921,www.hotelcarmel.it,1,I,1
+264,hotel Carmen,,"77",41.8996164,12.5002273,2,18,8,,6,2,,,,1,I,1
+265,Hotel Casa Mia In Trastevere,,88 90,41.890457,12.4714937,3,25,12,2,8,1,casamiaintrastevere@gmail.com,686974870,,1,I,1
+266,Hotel Casa Monti,,"210",41.8965983,12.4922702,5,71,36,3,32,,andrea@casamontiroma.com,3494712351,,1,I,1
+269,Hotel Castelfidardo,,"31",41.9064508,12.5007535,1,25,15,7,6,2,adrimmobiliare@pec.it,3665457527,,1,I,1
+270,Hotel Castellino Roma,,"133",41.8969742,12.482694,4,47,22,2,15,5,wehopesrl@gmail.com,66788982,,1,I,1
+272,Hotel Cathrine,,"27",41.9046237,12.4994027,1,15,10,5,5,,newcathrinehotel@gmail.com,6483634,,1,I,1
+273,Hotel Catone District,,"34",41.9075113,12.4587103,3,46,24,3,20,1,booking@catonedistricthotel.itbooking,639735082,www.catonedistricthotel.it,1,I,1
+274,Hotel Celio,,35 C,41.8891897,12.495689,3,25,14,6,5,3,info@hotelcelio.com,67096377,,1,I,1
+275,Hotel Cellini,,"5",41.9023862,12.49461,3,32,13,,7,6,info@hotelcellini.com,647825204,www.hotelcellini.com,1,I,1
+276,Hotel Central Lodge,,"19",41.8933378,12.5023501,3,42,18,,12,6,info@hotelcentrallodge.com,686923726,https://www.centrallodgehotel.com/,1,I,1
+277,hotel centro cavour roma,,"237",41.894332,12.4915217,3,23,14,5,9,,enehotel233@gmail.com,3477691607,,1,I,1
+278,Hotel Chapter Roma,,"47",41.8931734,12.4758168,4,86,47,8,39,,info@chapter-roma.com,689935351,www.chapter-roma.com,1,I,1
+279,Hotel Cherubini,,"77",41.8996164,12.5002273,1,25,11,1,6,4,info@hotelcherubini.com,3939866296,,1,I,1
+280,Hotel Chicago,,"63",41.8984999,12.5000658,2,17,9,1,8,,adolfold@libero.it,3804660192,,1,I,1
+282,Hotel City Palazzo Dei Cardinali,,"97",41.9036213,12.4849292,3,63,30,3,22,4,info@hcpalazzodeicardinali.it,66797468,www.hcpalazzodeicardinali.it,1,I,1
+283,Hotel Concept Terrace,,"50",41.9045684,12.4919999,3,19,8,,6,1,hotelrome50@gmail.com,3343821192,,1,I,1
+284,Hotel Conciliazione,,"163",41.9038888,12.4607937,4,138,67,7,50,9,borgo2014@legalmail.it,684000101,,1,I,1
+285,Hotel Concorde,,"95",41.8992831,12.5005591,2,77,36,7,17,12,concordehotel@ concordehotel.it,64825170,,1,I,1
+286,Hotel Condominio Monti,,"109",41.8966941,12.4901348,3,49,24,5,13,6,info@condominiomonti.it,64885889,www.condominiomonti.it,1,I,1
+287,Hotel Condotti,,"37",41.9061791,12.4806847,4,23,16,9,7,,amministrazione@hotelcondotti.com,66794661,,1,I,1
+288,Hotel Continentale,,"49",41.9047618,12.5042162,2,65,25,1,11,10,segreteria@bc-hospitality.com,644340051,,1,I,1
+290,Hotel Corona,,"3",41.8995583,12.4958155,3,131,61,13,36,4,info@hotelcoronaroma.it,64880080,www.hotelcoronaroma.it,1,I,1
+291,Hotel Corot,,"13",41.9022281,12.503444,3,66,28,4,12,10,info@corot.it,644700900,www.hotelcorot.com,1,I,1
+292,Hotel Corso 281,,"281",41.8972435,12.4821517,5,25,12,,11,1,suites@corso281.com,687809370,www.corso281.com,1,I,1
+294,Hotel D'este,,4 B,41.8965927,12.5009784,3,79,39,12,14,13,hoteldeste@gmail.com,3291754080,,1,I,1
+295,Hotel Damaso,,"60",41.8968166,12.4723493,3,89,39,,29,9,info@hoteldamaso.it,645503061,www.hoteldamaso.it,1,I,1
+297,Hotel De Clementi,,"9",41.9056022,12.4724761,1,15,10,5,5,,info@hoteldeclementi.com,637898287,www.hoteldeclementi.com,1,I,1
+298,Hotel De Monti,,"95",41.8967644,12.4923201,2,13,7,1,6,,contabilita95@gmail.com,64814723,,1,I,1
+299,Hotel De Petris,,"142",41.9025835,12.4873983,3,98,50,9,36,5,info@hoteldepetris.com,64819626,,1,I,1
+300,Hotel Degli Artisti,,"20",41.9053673,12.4868584,4,55,34,13,21,,info@hoteldegliartisti.com,642014991,http://www.hoteldegliartisti.com/it,1,I,1
+302,Hotel Dei Barbieri,,3:00 AM,41.8951065,12.4759317,4,33,14,1,9,3,gmpiperno@gmail.com,66868994,www.hoteldeibarbieri.com,1,I,1
+303,Hotel Dei Borgognoni,,"126",41.9027671,12.4828013,4,100,51,5,43,3,info@hotelborgognoni.it,669941505,www.hotelborgognoni.com,1,I,1
+305,hotel dei quiriti suite,,"198",41.9091417,12.463005,3,17,9,1,8,,aldocirulli@gmail.com,3939249008,,1,I,1
+306,Hotel Del Corso,,"79",41.906812,12.4780663,3,25,18,11,7,,francorecchio@libero.it,3356393791,,1,I,1
+307,Hotel Dell'urbe,,27 A,41.9022693,12.5049111,2,17,8,1,5,2,drgmichela@gmail.com,3931648484,,1,I,1
+308,Hotel Delle Cinque Lune,,"23",41.9005975,12.4724022,3,31,15,,14,1,assistenza.clienti@booking.com,683365700,https://anticadimoradellecinquelune.com-hotel.com/it/,1,I,1
+311,Hotel delle Vittorie,,"24",41.9176585,12.4633611,3,77,41,6,34,1,coldilanasrl@pec.it,3388488249,,1,I,1
+312,Hotel Diana,,"4",41.9006976,12.4973793,4,305,157,39,99,8,,,,1,I,1
+313,Hotel Diocleziano,,"71",41.9040004,12.4995932,4,59,35,12,22,1,hoteldiocleziano@bzarhotel.it,648900767,www.hoteldioclezianoroma.com,1,I,1
+314,Hotel Diplomatic,,"28",41.9050636,12.472174,3,69,35,4,28,3,a.lassalandra@groupevaladier.com,66832685,,1,I,1
+318,Hotel Domus Praetoria,,"42",41.9031208,12.5059294,1,24,12,3,6,3,restitalia@pecimprese.it,3476647761,,1,I,1
+319,Hotel Domus Rome Via Nazionale,,"251",41.9018069,12.4945889,1,19,9,1,6,2,hoteldomusrome@gmail.com,65400563,,1,I,1
+320,Hotel Domus Termini,,"77",41.8996164,12.5002273,1,25,12,1,9,2,enchin.chiang@gmail.com,3395888366,,1,I,1
+321,Hotel Domus Tiberina,,"37",41.8888421,12.4770024,2,13,10,7,3,,tiberina24srl@gmail.com,3888692855,,1,I,1
+322,Hotel Donatello,,"83",41.8922047,12.5133298,3,87,42,6,28,7,info@donatellorome.com,67010833,www.donatellorome.com,1,I,1
+323,hotel donna francesca,,"48",41.9026249,12.4939786,1,23,9,3,2,1,info@hoteldonnafrancesca.com,3312153754,www.hoteldonnafrancesca.com,1,I,1
+324,hotel dorica,,"14",41.900059,12.4943834,3,24,13,2,11,,amministrazione@hoteldorica.com,6483615,,1,I,1
+327,Hotel Elide,,"50",41.9024056,12.4940444,3,24,14,5,8,1,info@hotelelide.com,62057420,,1,I,1
+328,Hotel Elite,,"49",41.9043061,12.4856459,3,38,21,8,9,4,sangiorgio_srl@pec.it,65911659,,1,I,1
+330,Hotel Erdarelli,,"28",41.9034669,12.484756,3,41,23,10,8,5,valutourist@pec.it,3204848038,,1,I,1
+331,Hotel Espana,,"21",41.8917103,12.5104143,2,16,10,4,6,,reservation@blamhotels.com,6770005,,1,I,1
+333,Hotel Eurorooms,,"87",41.903402,12.505986,1,15,8,2,5,1,info@eurorooms.it,664871174,www.eurorooms.it,1,I,1
+334,Hotel Family House,,"72",41.8929301,12.5080804,1,19,11,4,6,1,familyhouseroma@gmail.com,67000770,,1,I,1
+335,Hotel Farnese,,"30",41.9114524,12.4675409,4,50,23,2,15,6,info@hotelfarnese.com,63212553,www.hotelfarnese.com,1,I,1
+336,Hotel Fellini,,"56",41.9022919,12.4866835,3,60,40,21,18,1,info@hotelfellini.com,642742732,www.hotelfellini.com,1,I,1
+337,Hotel Fendi Private Suites,,"48",41.9044986,12.4783441,5,14,7,,7,,info@fendiprivatesuites.com,697798080,www.fendiprivatesuites.com,1,I,1
+339,Hotel Ferrari,,"95",41.8992831,12.5005591,2,44,16,3,1,9,faithsrls@legalmail.it,645471503,,1,I,1
+340,Hotel Ferraro,,"266",41.8937547,12.4901272,2,18,10,4,4,2,dinicola.giuseppe@gmail.com,6160513541,www.hotelferraro.it,1,I,1
+341,Hotel Fiori,,"163",41.8969772,12.4872871,2,24,12,2,8,2,pdl78@tiscali.it,3383614215,,1,I,1
+342,Hotel Foro Romano Imperatori,,"294",41.893537,12.4894538,3,18,10,4,4,2,info@hotelfororomano.com,64826218,http://www.hotelfororomano.com/,1,I,1
+343,Hotel Forte,,"61",41.907338,12.4808414,3,36,19,5,11,3,,,,1,I,1
+344,Hotel Gabriella,,"88",41.9033809,12.5065237,3,51,23,,18,5,,,,1,I,1
+345,Hotel Garda,,"30",41.9077521,12.4881969,3,58,26,4,13,8,,,,1,I,1
+346,Hotel Gea Di Vulcano,,"243",41.901484,12.4940831,3,25,15,5,10,,einaudiaccomodationssrl@pec.it,64884996,,1,I,1
+347,Hotel Genova,,"25",41.8998215,12.498501,4,175,85,1,78,6,genova@remarhotels.com,6476951,,1,I,1
+348,Hotel Giada,,"9",41.9000259,12.4981659,1,14,8,3,4,1,maxcolan@gmail.com,3275444972,,1,I,1
+351,Hotel Gioberti,,"20",41.8993697,12.5013539,4,180,90,6,78,6,reservation@hotelgioberti.it,64440625,,1,I,1
+352,Hotel Giolitti,,"415",41.8934551,12.5120079,3,25,13,1,12,,booking@giolittihotel.com,697990889,,1,I,1
+353,Hotel Giolitti Smart,,"413",41.8934807,12.5119378,2,17,10,3,7,,booking@giolittihotel.com,697990889,,1,I,1
+354,Hotel Giolli Nazionale,,"69",41.8992813,12.4912527,3,114,61,13,44,3,info@hotelgiolli.it,64882393,,1,I,1
+356,Hotel Giotto Flavia,,"84",41.9073287,12.4972968,2,23,14,5,9,,info@hotelgiottoflavia.com,390698000000,www.hotelgiottoflavia.com,1,I,1
+357,Hotel Giubileo,,"13",41.8966147,12.5002598,2,25,17,9,8,,ahmed.sale89@yahoo.com,32755580000,,1,I,1
+358,Hotel Giuggioli,,"198",41.9091417,12.463005,3,14,9,4,5,,quiriti@tiscali.it,636005389,,1,I,1
+361,Hotel Gregoriana,,"18",41.9046437,12.4846604,3,47,21,3,10,8,,,,1,I,1
+362,Hotel Homs,,"71",41.9041285,12.4823895,4,102,51,21,17,5,info@hotelhoms.it,3272216558,,1,I,1
+363,Hotel Horti 14,,"14",41.8939756,12.4630976,4,50,22,,19,,info@horti14.com,668806289,www.horti14.com,1,I,1
+366,Hotel Indipendenza,,"13",41.9033759,12.5024959,1,20,11,3,7,1,hotelindipendenza@gmail.com,644362204,www.hotelindipendenza.it,1,I,1
+367,Hotel Infinito,,"1",41.8914542,12.5107803,3,24,16,8,8,,,,,1,I,1
+370,Hotel La Fenice,,15 A,41.9032988,12.4853435,3,17,12,7,5,,info@lafenicehotelroma.it,669924637,https://www.lafenicehotel.com/it/,1,I,1
+373,Hotel La Place,,"35",41.9037128,12.4783082,4,13,7,2,4,1,vitticentro@yahoo.it,668307269,,1,I,1
+374,Hotel La Residenza,,"22",41.9067683,12.4886026,4,74,25,1,7,9,info@laresidenzaroma.com,64880789,www.laresidenzaroma.com,1,I,1
+375,Hotel La Rovere,,"5",41.8986503,12.4621749,4,55,27,3,20,4,,,,1,I,1
+378,Hotel Labelle,,"310",41.8934558,12.4888506,2,25,10,1,4,4,info@hotellabelle.it,66794750,www.hotellabelle.it,1,I,1
+379,Hotel Latinum,,"11",41.8920487,12.5141764,4,24,12,,12,,,,,1,I,1
+381,Hotel Le Reve De Naim,,"5",41.904658,12.4817936,4,18,9,,9,,massimo.naim@gmail.com,3388061631,,1,I,1
+382,Hotel Lella,,"9",41.9076771,12.5006318,2,38,13,7,6,,hotellella@gmail.com,6484940,www.hotellellarome.com,1,I,1
+383,Hotel Leone,,"47",41.8995596,12.4981896,1,20,10,3,4,3,hotelleoneroma@outlook.it,64871590,www.hotelleoneroma.com,1,I,1
+384,Hotel Les Chambres D'or Catone 21,,"21",41.9073529,12.459151,1,12,7,2,5,,info@leschambresdor.com,63908161,,1,I,1
+385,Hotel Les Chambres D'or Gracchi 32,,"32",41.9072268,12.4587617,1,13,7,2,4,1,info@leschambresdor.com,63908161,,1,I,1
+387,Hotel Lirico,,"31",41.9002502,12.4952555,3,50,26,2,24,,,,,1,I,1
+388,Hotel' Little Aurelius,,"44",41.9067575,12.4686842,1,12,7,2,5,,pinoarrighi@hotmail.com,3392074774,,1,I,1
+389,Hotel Locanda Cairoli,,"2",41.893343,12.4749029,4,24,13,2,11,,info@locandacairoli.com,668809278,www.locandacairoli.com,1,I,1
+390,Hotel Locarno,,"22",41.9096822,12.4747589,5,98,49,,49,,booking@hotellocarno.com,63610841,,1,I,1
+391,Hotel Lunetta,,"68",41.8959176,12.4734831,4,49,30,11,19,,alessandro.montaldo@hotellunetta.com,63218368,,1,I,1
+392,Hotel Magic,,"20",41.9021999,12.5045539,2,23,10,2,4,3,info@hotel-magic-rome.com,64959880,,1,I,1
+394,Hotel Mancino 12,,"12",41.8974514,12.4826582,4,24,14,5,8,1,welcome@hotelmancino12.com,6674971,,1,I,1
+395,Hotel Marcantonio,,"47",41.8995596,12.4981896,2,50,24,5,14,4,,,,1,I,1
+396,Hotel Martini,,"18",41.9009454,12.4937967,3,24,10,1,4,5,hotelmartini@gmail.com,64880994,www.hotelmartini.net,1,I,1
+397,Hotel Martini Rooms,,"101",41.8942648,12.5078775,1,14,7,2,3,2,smile.sas786@gmail.com,3511371484,,1,I,1
+398,Hotel Maryelen,,85 A,41.8980907,12.5009903,1,16,9,2,7,,info@maryelen.com,64460626,www.hotelmaryelen.com,1,I,1
+399,Hotel Maryelen 2,,87 B,41.8981125,12.5012775,2,12,7,2,5,,info@maryelen.com,64460626,www.hotelmaryelen.com,1,I,1
+400,Hotel Mascagni,,"90",41.9038548,12.4947912,4,84,40,2,32,6,info@hotelmascagni.com,391000000000,www.hotelmascagni.com,1,I,1
+401,Hotel Max,,"30",41.8988934,12.500825,3,25,15,5,10,,terminipalacesrl@legalmail.it,63728683,,1,I,1
+402,Hotel Maximus,,"12",41.9008508,12.4948299,3,69,39,12,24,3,info@hotelmaximus.com,3888558521,,1,I,1
+403,Hotel Medici,,96 N,41.9075756,12.4977353,3,150,68,12,34,18,info@hotelmedici.com,64827319,www.hotelmedici.com,1,I,1
+404,Hotel Memphis,,"36",41.9028186,12.4864705,4,35,20,6,13,1,memphis@remarhotels.com,6485849,www.hotel-memphis-rome.com,1,I,1
+405,Hotel Metropolis,,"26",41.9133207,12.4646152,4,90,55,32,15,4,,,,1,I,1
+406,Hotel Mimosa,,"61",41.8978247,12.4759721,1,25,11,2,5,3,info@hotelmimosa.net,668801753,,1,I,1
+407,Hotel Mirage,,"4",41.9016715,12.5037849,2,23,14,5,9,,info@bnbgalaxy.it,3476206670,,1,I,1
+409,Hotel Modigliani,,"42",41.9049026,12.4867323,3,47,23,,22,1,,,,1,I,1
+410,Hotel Monte Cenci,,"10",41.8923048,12.4756433,4,60,30,2,27,,info@montecenci.com,694538750,www.montecenci.com,1,I,1
+411,Hotel Monti First,,1 B,41.8982315,12.4889748,1,24,12,2,8,2,montifirst@livingroma.it,648913457,www.montifirst.com,1,I,1
+412,Hotel Montreal,,"4",41.8965927,12.5009784,3,14,7,1,5,1,lucky2024srl@pec.it,3384980680,,1,I,1
+413,Hotel Museum,,"8",41.9074921,12.4530378,3,68,31,2,24,2,info@hotelmuseum.it,639723941,,1,I,1
+414,Hotel Navona,,"8",41.8977498,12.4747551,3,43,18,1,11,4,info@hotelnavona.com,668301252,www.hotelnavona.com,1,I,1
+415,HOTEL ORBIS,,"62",41.8992162,12.499877,2,19,9,2,5,1,ad.roma2021@gmail.com,64743410,,1,I,1
+416,Hotel Oriente,,"58",41.8948561,12.5010036,2,58,27,4,17,4,info@hoteloriente.net,64873119,,1,I,1
+417,Hotel Ottaviano Augusto,,4:00 AM,41.9116088,12.4519264,3,56,24,,20,,amministrazione@hotelottavianoaugusto.it,3388912141,,1,I,1
+420,Hotel Palazzo Ripetta.,,"231",41.9085298,12.4755444,5,153,78,3,75,,direzione.generale@palazzoripetta.com,63231144,,1,I,1
+421,Hotel Palazzo Talia,,"25",41.9028426,12.4835586,5,52,26,,26,,info@palazzotalia.com,6692521,www.palazzotalia.com,1,I,1
+422,Hotel Pantheon,,"131",41.8993552,12.4775378,4,28,12,2,6,2,info@hotelpantheon.it,66787746,,1,I,1
+425,Hotel Paris,,"57",41.9019249,12.4943684,3,100,50,14,25,8,s57@pec.net,3459443311,,1,I,1
+426,Hotel Parker,,"431",41.8931429,12.5124382,3,62,29,2,21,6,reservation@blamhotels.com,6770005,,1,I,1
+427,Hotel Patria,,"36",41.9026426,12.4946942,3,99,52,14,30,7,info@hotelpatria.it,64814872,,1,I,1
+433,Hotel Pisa,,"10",41.8934659,12.5115869,1,25,13,3,8,2,hotelpisaroma@gmail.com,645443835,www.hotelpisaroma.it,1,I,1
+434,Hotel Planet,,"3",41.9016206,12.5043058,2,25,14,3,11,,biettus@hotmail.com,3404849287,,1,I,1
+436,Hotel Pomezia,,"12",41.8949243,12.4743307,2,51,25,4,16,5,hotelpomezia@bzarhotel.it,684030773,,1,I,1
+439,hotel positano new,,"49",41.9047618,12.5042162,2,18,10,4,4,2,mahabubitaly@gmail.com,3807719334,,1,I,1
+440,Hotel Primavera,,"3",41.8971497,12.4725544,2,33,15,2,8,5,hotelprimaveraroma@gmail.com,668803109,www.hotelprimavera-roma.it,1,I,1
+441,Hotel Principe,,"67",41.8988202,12.5000552,2,15,9,4,4,1,hrsrl78@gmail.com,3334677400,www.hotel principe claud .it,1,I,1
+442,Hotel Principe Eugenio,,"92",41.8935604,12.5090256,3,36,16,,13,2,principeeugenio@tiscali.it,677206094,,1,I,1
+444,Hotel Principessa Isabella,,"149",41.9099298,12.4937363,4,92,43,4,31,6,info@hotelprincipessaisabella.com,6484523,www.hotelprincipessaisabella.eu,1,I,1
+445,Hotel Priscilla,,"17",41.9099516,12.4973164,3,79,36,3,23,10,info@hotelpriscilla.it,642817602,www.hotelpriscilla.it,1,I,1
+446,Hotel Quirinale,,"7",41.9013589,12.4948971,4,490,209,4,140,54,info@hotelquirinale.it,64707,,1,I,1
+447,Hotel Raffaello,,"3",41.8977558,12.4953088,3,88,41,5,29,3,amministrazione@rgrhotels.it,683467736,www.hotelraffaello.it,1,I,1
+448,Hotel Regency,,42 A,41.9099552,12.4940598,4,82,41,,41,,info@theregencyrome.it,694682000,,1,I,1
+449,Hotel Regno,,"331",41.8999132,12.4807882,3,59,23,,15,3,valerioleopoldoceccarelli@gmail.com,684009850,https://www.hotelregno.com/,1,I,1
+450,Hotel Relais De La Poste,,"117",41.9055325,12.4785868,3,25,14,3,11,,aenaria75srl@legalmail.it,3395220565,,1,I,1
+451,Hotel Relais Dei Papi,,"161",41.9083392,12.4642597,3,84,40,2,33,4,nicosiaaaa2000@yahoo.it,63200921,,1,I,1
+452,Hotel Relais Manzoni,,"14",41.8910181,12.5096265,3,14,11,8,3,,info@relaismanzoni.it,685301113,http://relaismanzoni.it/,1,I,1
+453,Hotel Relais San Pietro,,"134",41.9110018,12.4564254,3,25,13,1,12,,dantemasellis@libero.it,984518117,,1,I,1
+456,Hotel Rinascimento,,"122",41.8972789,12.4683548,4,22,13,6,6,,info@hotelrinascimento.com,390680000000,https://www.hotelrinascimento.com/,1,I,1
+460,Hotel Roma Italia Viminale,,"18",41.8997915,12.4929352,2,41,23,8,12,3,rm.viminale@hotelbb.com,64828355,,1,I,1
+466,Hotel Roma Vaticano,,"19",41.9083168,12.4647211,1,12,7,3,3,1,,,,1,I,1
+469,Hotel Royal Bissolati,,40 A,41.9052571,12.4914026,4,65,31,,28,3,info@hotelroyalbissolati.com,681156688,www.hotelroyalbissolati.com,1,I,1
+470,hotel sallustio,,"84",41.9073287,12.4972968,1,12,8,4,4,,info.hotelsallustio@gmail.com,68551287,,1,I,1
+473,Hotel San Remo,,"36",41.8998142,12.4976524,3,213,78,7,19,41,booking@sanremoroma.com,691516000,,1,I,1
+475,Hotel Santa Prisca,,"25",41.8788761,12.4793197,2,89,49,9,40,,hsprisca@hotelsantaprisca.it,65750469,,1,I,1
+476,Hotel Seiler,,"48",41.9026249,12.4939786,2,24,17,12,3,2,diego.allocca@libero.it,3483711568,,1,I,1
+477,Hotel Select,,"6",41.9043326,12.5037565,3,37,21,5,16,,lucaludovici1@gmail.com,3355265975,,1,I,1
+479,Hotel Siracusa,,"50",41.902023,12.5032529,3,197,140,84,55,1,hotelsiracusa@raelihotels.it,6490191,,1,I,1
+481,Hotel Sky Roma,,"75",41.8962967,12.5025935,2,13,8,3,5,,rossoitalia2023@gmail.com,3332835718,,1,I,1
+482,hotel smeraldo,,"9",41.8946699,12.474447,3,107,49,2,36,11,info@smeraldoroma.com,66892121,,1,I,1
+483,Hotel Sole Al Pantheon,,"63",41.8995572,12.4770898,4,49,25,3,20,2,info@hotelsolepantheon.com,66780441,www.hotelsolealpantheon.com,1,I,1
+484,Hotel Solis-Hs311,,"311",41.8938191,12.4893194,3,34,17,3,11,3,info@hotelsolis.com,669923395,,1,I,1
+485,Hotel Sourire,,"3",41.8825724,12.4839854,3,62,22,,9,8,sourire@tiscali.it,65750958,www.sourirehotel.it,1,I,1
+487,Hotel Suite Caesar,,"14",41.9019355,12.5041727,2,18,9,3,3,3,suitecaesar@gmail.com,64463124,www.suitecaesarhotelroma.it,1,I,1
+488,Hotel Sweet Home,,"47",41.8991216,12.4996877,2,25,13,2,10,1,info@hotelsweethome.it,64880954,www.hotelsweethome.it,1,I,1
+489,Hotel Teatro Di Pompeo,,"8",41.8955011,12.4736855,3,25,13,1,12,,booking@hotelteatrodipompeo.it,668300170,http://www.hotelteatrodipompeo.it/,1,I,1
+490,Hotel Tempio Di Pallade,,"425",41.8932966,12.5123124,3,94,41,2,26,12,amministrazione@hoteltempiodipallade.it,670451521,,1,I,1
+491,Hotel Termini,,"77",41.8996164,12.5002273,2,16,8,1,6,1,,,,1,I,1
+492,Hotel Terrazza Magenta,,"39",41.902297,12.5038605,1,8,7,6,1,,dennislegaspi95@yahoo.com,3713997827,,1,I,1
+494,Hotel The Corner Roma,,"121",41.880532,12.4846964,4,18,9,,9,,federicodellarocca@gmail.com,3488875963,,1,I,1
+496,Hotel Tito,,"29",41.9025276,12.5038521,3,23,15,7,8,,hoteltito@hotmail.com,3939249008,,1,I,1
+497,Hotel Touring,,"2",41.9008928,12.497061,2,53,30,13,11,6,h.touring@tiscali.net,64827911,www.hoteltouring.net,1,I,1
+498,Hotel Tre Stelle,,"11",41.9053853,12.5045229,2,75,41,13,22,6,,,,1,I,1
+499,Hotel Trecento,,"300",41.8972875,12.4818018,3,25,13,1,12,,luxurycodesrl@legalmail.it,3346444683,,1,I,1
+501,Hotel Triviho,,"50",41.9045684,12.4919999,3,21,9,,6,3,info@triviho.com,645618210,,1,I,1
+502,Hotel Valentino Palace,,"34",41.8987142,12.5015123,3,22,11,2,7,2,valentinoinn@gmail.com,3458910074,,1,I,1
+503,Hotel Valeri,,"3",41.8831402,12.4990643,3,21,10,,9,1,,,,1,I,1
+504,Hotel Valer�,,"1",41.883969,12.4993884,3,17,8,,7,1,info@hotelvaleri.it,677591793,,1,I,1
+505,Hotel Valle,,"134",41.8967607,12.4955879,3,93,42,2,30,9,info@hotelvalle.it,64815736,www.hotelvalle.it,1,I,1
+506,Hotel Varese,,"26",41.9030508,12.5053277,3,60,34,14,14,6,direzione@hotelvareseroma.com,645777980,www.hotelvareseroma.com,1,I,1
+507,Hotel Veneto Palace,,"63",41.9090066,12.4932404,4,148,70,1,60,9,info@hotelveneto.com,62037,https://www.hotelveneto.com/,1,I,1
+508,Hotel Venustas,,"27",41.90531,12.4718219,3,25,12,2,7,3,segreteria@bestsuitesroma.it,3200747226,,1,I,1
+509,Hotel Verona,,"154",41.8973857,12.496656,3,74,37,,37,,,,,1,I,1
+510,Hotel Vespasiano,,"49",41.9079924,12.4569789,4,24,12,,12,,info@hotelvespasiano.it,691511414,www.hotelvespasiano.it,1,I,1
+511,Hotel Via Veneto L'essenza Di Roma,,"118",41.9084963,12.488791,5,16,8,2,5,,amministrazione@hotelviaveneto.it,669325067,https://www.hotelviaveneto.it/,1,I,1
+513,Hotel Viennese,,"64",41.9017847,12.5034709,1,14,7,1,5,1,rafroma08@gmail.com,3472642437,,1,I,1
+521,Hotel Villafranca,,"9",41.9051419,12.504997,4,198,99,7,85,7,info@hotelvillafrancaroma.it,64440364,,1,I,1
+523,Hotel Viminale,,"31",41.8983006,12.4950987,4,81,43,7,34,2,hotelviminale@bzarhotel.it,684030333,,1,I,1
+525,Hotel Virgilio,,"30",41.8990496,12.4920166,3,63,42,22,19,1,info@hotelvirgilio.it,64884360,www.hotelvirgilio.it,1,I,1
+526,Hotel Vite,,"14",41.9034096,12.4799119,3,49,23,4,12,7,booking@infinityhotel.it,693579480,,1,I,1
+527,Hotel Xx Settembre,,"6",41.905882,12.4998524,3,24,15,6,9,,amministrazione@bzarhotel.it,64467215,,1,I,1
+528,Hotelokapi,,"57",41.9095171,12.4750741,1,23,20,18,1,1,info@okapirooms.it,632609815,,1,I,1
+531,Hotel Igea,,"97",41.8979932,12.5015391,3,73,42,16,21,5,,,,1,I,1
+533,Hotel Il Papavero,,"50",41.9065554,12.5009522,1,33,10,,3,1,,,,1,I,1
+534,Hotel Isa,,"39",41.9068858,12.4689745,4,91,54,17,37,,,,,1,I,1
+537,Hotel Julia,,"29",41.9024752,12.487877,3,68,33,8,18,4,,,,1,I,1
+538,Hotel Katty,,"35",41.905773,12.5030686,1,20,9,1,6,1,amministrazione@hotelkatty.it,645426337,,1,I,1
+539,Hotel Kennedy,,"62",41.8985106,12.5021369,3,86,40,3,30,5,,,,1,I,1
+540,Hotel Kennedy Ii,,"62",41.8985106,12.5021369,2,25,12,2,8,1,,,,1,I,1
+541,Kolbe Hotel Rome,,"44",41.8901821,12.4839905,4,181,71,1,39,22,,,,1,I,1
+543,Hotel Kristi,,"24",41.9081243,12.4977868,3,15,10,5,5,,,,,1,I,1
+545,Hotel La Lumiere Di Piazza Di Spagna,,"72",41.904922,12.4795615,3,20,10,,10,,,,,1,I,1
+546,Hotel La Rosa,,"71",41.8954367,12.5025202,1,10,5,,5,,,,,1,I,1
+550,Hotel Lazzari,,"31",41.9064508,12.5007535,1,21,13,6,6,1,,,,1,I,1
+552,Hotel Le Clarisse,,"19",41.8968455,12.4769666,3,24,11,,9,2,,,,1,I,1
+553,Hotel Le Petit,,"122",41.9017401,12.4957707,3,23,11,1,8,2,info@hotellepetit.com,3888558521,,1,I,1
+554,Hotel Licia,,"76",41.898959,12.5002938,1,25,11,2,6,1,,,,1,I,1
+555,Hotel Lilium,,"58",41.9076104,12.4986381,3,27,14,2,11,1,liliumhotel@gmail.com,64741133,https://www.liliumhotel.it/it/,1,I,1
+556,Hotel Living Room,,"9",41.903514,12.5015055,2,23,9,1,2,6,,,,1,I,1
+558,Loly Boutique Hotel Roma,,"17",41.886047,12.4683786,4,58,29,,29,,info@lolyhotel.com,686798001,www.lolyhotel.com,1,I,1
+559,Hotel Lucy,,"13",41.9033759,12.5024959,1,13,7,4,,3,,,,1,I,1
+560,Hotel Ludovisi Palace,,"43",41.9070262,12.4882337,4,116,55,5,44,1,info@ludovisipalacehotel.com,642020396,,1,I,1
+561,Lumi Hotel,,"67",41.8988202,12.5000552,1,22,10,1,7,1,info@fghotel.it,647824096,https://www.hotelflowergardenrome.com/,1,I,1
+562,Hotel Major Aventinus,,"10",41.8818073,12.4798006,1,41,29,19,8,2,,,,1,I,1
+564,Hotel Manzoni,,"1",41.893328,12.5114525,2,20,13,6,7,,,,,1,I,1
+566,Hotel Marco Polo,,"39",41.902297,12.5038605,3,62,27,1,19,5,info@hotelmarcopoloroma.it,64474091,www.hotelmarcopoloroma.it,1,I,1
+567,Hotel Marechiaro,,"30",41.8988934,12.500825,2,47,18,1,5,12,info@hotelmarechiaro.com,64465367,www.hotelmarechiaro.com,1,I,1
+568,Hotel Marghera,,"29",41.9025276,12.5038521,3,58,25,3,14,5,,,,1,I,1
+569,Hotel Mari 2,,"38",41.9051479,12.5002325,1,36,19,2,17,,,,,1,I,1
+570,Hotel Mariano,,"19",41.8975209,12.503142,3,78,33,5,11,17,,,,1,I,1
+572,Martino Ai Monti,,"7",41.8954717,12.4990722,1,13,7,2,4,1,,,,1,I,1
+573,Martis Palace Hotel,,"1",41.897072,12.4736407,4,52,26,4,20,,alessandro.montaldo@hotellunetta.com,63218368,,1,I,1
+574,Martius Private Suites Hotel,,"49",41.9010781,12.4768285,4,49,19,,12,3,amministrazione@martiusprivatesuites.com,3486056626,,1,I,1
+575,Mas Boutique Hotel Rome,,"504",41.9083236,12.4772484,3,16,7,2,2,2,citylifesrl@pec.it,3286038194,,1,I,1
+577,Master Trevi Hotel,,"98",41.9016574,12.4851737,4,76,20,,,20,info@stay-master.com,694802445,,1,I,1
+578,Mecenate Palace Hotel,,"3",41.8967974,12.4999125,4,127,61,6,44,11,,,,1,I,1
+580,Hotel Melting Pot Rome,,"17",41.8929908,12.5085519,2,22,10,2,5,2,daniele.fraioli@gmail.com,3398139195,,1,I,1
+581,Hotel Meridiana,,"38",41.9051479,12.5002325,2,24,12,1,10,1,,,,1,I,1
+583,Hotel Miami,,"230",41.9010294,12.4932468,3,76,41,8,31,2,,,,1,I,1
+584,Mihotel Home,,"9",41.9132973,12.4695532,3,40,9,,7,2,info@cfromerooms.com,3318066295,www.cfromerooms.com,1,I,1
+585,Hotel Milazzo,,"3",41.9016206,12.5043058,2,21,11,1,10,,,,,1,I,1
+586,Hotel Milo,,"76",41.898959,12.5002938,3,55,28,7,16,4,,,,1,I,1
+587,Hotel Milton Roma,,"155",41.8905399,12.5063996,4,152,92,36,52,4,,,,1,I,1
+589,Hotel Monterosa,,"46",41.8975347,12.5048211,1,8,4,1,2,1,,,,1,I,1
+590,Monti 66 Hotel,,"66",41.899339,12.491388,2,20,10,3,4,3,iolematilde@gmail.com,3332461025,,1,I,1
+591,Monti Palace Hotel,,"185",41.8954262,12.4938437,4,132,55,11,22,15,account@montipalacehotel.com,6480231,,1,I,1
+592,Hotel Moscatello,,"51",41.8937372,12.5076691,1,33,14,,9,5,,,,1,I,1
+594,Mytale Creative Academy Hotel,,"4",41.895673,12.4929482,4,30,9,,3,3,hm@mytalerome.com,3490695925,www.mytalerome.com,1,I,1
+595,Mz Hotel,,"12",41.8930052,12.4724473,3,30,15,,15,,info@colonnasuite.com,669208008,,1,I,1
+596,Hotel Napoleon,,"105",41.8938068,12.5039149,4,153,74,11,47,16,infobook@napoleon.it,64467264,https://www.napoleon.it/,1,I,1
+597,Hotel Nardizzi Americana,,"38",41.9033814,12.4929939,2,52,27,2,22,3,,,,1,I,1
+598,Hotel Nautilus,,"198",41.9091417,12.463005,3,23,11,2,6,3,info@hotelnautilusroma.com,63242118,www.hotelnautilusroma.com,1,I,1
+599,Navona Colors Hotel,,"38",41.9019028,12.4738199,3,42,18,,13,4,,,,1,I,1
+600,Navona Essence Hotel,,"24",41.8960738,12.4709084,3,15,7,,6,1,booking@navonaessencehotel.it,687605186,www.navonaessencehotel.it,1,I,1
+601,Navona Street Hotel,,"53",41.8995347,12.4673475,3,13,8,3,5,,fabiana.sollecchia@gmail.com,3357108009,,1,I,1
+602,Navona Theatre Hotel,,"3",41.8984296,12.4717146,3,25,11,,8,3,,,,1,I,1
+603,Hotel Nerva,,"3",41.8946574,12.4871212,3,35,19,6,11,1,,,,1,I,1
+604,Hotel New Angel In Rome,,"43",41.9059535,12.4715743,1,17,9,1,8,,,,,1,I,1
+605,Hotel New York,,"13",41.9033759,12.5024959,1,19,11,6,2,3,,,,1,I,1
+607,Hotel Nizza,,"16",41.9003779,12.4981159,3,175,66,4,31,15,,,,1,I,1
+608,Nova Domus Hotel,,"38",41.9120537,12.4506927,1,100,57,19,35,1,claudio@novadomushotel.it,6399511,,1,I,1
+609,Hotel Novecento,,"12",41.8911342,12.5095257,3,43,23,3,20,,,,,1,I,1
+610,Hotel Oceania,,"38",41.9033814,12.4929939,2,23,9,1,2,6,,,,1,I,1
+613,Orange Hotel,,"86",41.9061738,12.4598486,4,55,28,4,21,3,info@orangehotelrome.com,66868969,www.orangehotelrome.com,1,I,1
+614,Hotel Orlanda,,"76",41.898959,12.5002938,2,17,9,1,8,,,,,1,I,1
+618,Otivm Hotel,,11:00 AM,41.8947913,12.4803213,4,46,20,,14,6,info@hotiumhotel.eu,640410547,,1,I,1
+619,Hotel Ottaviano,,"6",41.9067193,12.4579658,3,22,7,,2,2,,,,1,I,1
+620,Paba Hotel,,"266",41.8937547,12.4901272,2,20,7,,2,4,info@hotelpaba.com,647824497,,1,I,1
+621,Hotel Pacific,,"51",41.9105451,12.4460738,3,129,82,37,43,2,info@hotelpacificroma.com,639732085,https://www.hotelpacificroma.com/,1,I,1
+622,Palazzo Navona Hotel,,"16",41.8976218,12.4744782,4,100,43,1,30,9,fom.palazzonavona.ext@enpam.it,681152341,,1,I,1
+623,Palazzo Venere Hotel,,"34",41.9086495,12.4778487,4,26,12,2,6,4,info@palazzovenere.com,6874030890,www.palazzovenere.com,1,I,1
+624,Palladium Palace,,"36",41.8985219,12.5005422,4,221,80,6,15,52,,,,1,I,1
+626,Hotel Panda,,"35",41.9061052,12.4795234,2,40,28,18,8,2,,,,1,I,1
+629,Parlamento Boutique Hotel,,"5",41.9026128,12.4800186,3,41,19,,16,3,hotelparlamento@libero.it,669921000,http://www.hotelparlamento.it/,1,I,1
+630,Parrasio Hotel,,"9",41.8895068,12.4656186,3,14,7,,7,,info@parrasiohotel.com,687770139,,1,I,1
+631,Pax  Hotel,,"12",41.9021247,12.4773586,4,24,17,10,7,,segreteria.arbela@gmail.com,3279283635,,1,I,1
+632,Hotel Philia,,"88",41.9033809,12.5065237,3,100,48,8,31,6,info@hotelphilia.it,64469026,www.hotelphilia.it,1,I,1
+633,Piazza Di Spagna,,"61",41.9061687,12.4809534,3,50,20,1,9,9,,,,1,I,1
+634,Piazza Di Spagna Suite De Charme,,"8",41.9070209,12.4824857,1,15,7,,6,1,mariavittoria.mazzucchiello@gmail.com,3331375481,,1,I,1
+635,Piemonte,,"32",41.9034185,12.5032117,3,57,34,11,23,,,,,1,I,1
+636,Pinaco Hotel,,"50",41.9045684,12.4919999,2,21,10,1,8,,info@pinacohotel.it,3921688236,,1,I,1
+638,Hotel Plaza,,"126",41.9051743,12.4787578,5,492,198,12,98,71,,,,1,I,1
+639,Hotel Portoghesi,,"1",41.9017904,12.4743516,3,39,25,13,10,2,,,,1,I,1
+640,Prassede Palace Hotel,,"282",41.8965101,12.4992337,4,21,13,6,6,1,prassedesrl@legalmail.it,3387517270,,1,I,1
+641,Hotel Prati,,"89",41.9058171,12.4609504,2,50,29,9,19,1,,,,1,I,1
+642,Pride Hotel,,"4",41.8937725,12.5061034,1,13,7,2,4,1,kodos8585@never.com,34864364000,,1,I,1
+643,Princeps Boutique Hotel,,"29",41.8978231,12.4969563,3,42,20,2,14,4,,,,1,I,1
+644,Principe Amedeo,,"2",41.9008928,12.497061,2,24,12,2,8,2,,,,1,I,1
+645,Principe Di Piemonte,,"449",41.8923752,12.5137713,3,22,18,14,4,,,,,1,I,1
+646,Hotel Queen,,"11",41.9053853,12.5045229,1,22,10,1,6,3,,,,1,I,1
+647,Quirinale Luxury Rooms,,"51",41.897117,12.4870868,2,19,8,,6,1,info@trevipalacehotel.com,6483739,,1,I,1
+648,Hotel Quisisana,,"37",41.8988006,12.5020059,2,88,36,4,13,18,,,,1,I,1
+652,Hotel Regina Giovanna,,"230",41.9010294,12.4932468,3,23,11,2,6,3,,,,1,I,1
+656,Residenza Piranesi Hotel.,,"48",41.9049283,12.485198,3,62,28,2,20,4,fedroom@legalmail.it,3355758265,,1,I,1
+658,Hotel Richmond,,"36",41.8931293,12.4882355,4,25,13,3,8,2,,,,1,I,1
+659,Hotel Rimini,,"17",41.9023028,12.5035963,3,90,37,4,14,18,,,,1,I,1
+663,Hotel Robinson,,"3",41.9016206,12.5043058,2,40,9,1,6,1,info@hotelrobinsonrome.com>,6491423,www.hotelrobinsonrome.com/,1,I,1
+664,Roma Luxus Hotel,,"4",41.8958578,12.4872811,5,65,28,4,15,7,romaluxushotel@gmail.com,632091281,www.romaluxushotel.com,1,I,1
+667,romalive hotel,,"84",41.9073287,12.4972968,1,25,15,5,10,,romalivehotel@gmail.com,68551287,,1,I,1
+668,Hotel Roman's,,"3",41.9016206,12.5043058,1,18,10,2,8,,,,,1,I,1
+669,Hotel Romantica,,"77",41.8983611,12.5007886,2,24,14,4,10,,,,,1,I,1
+670,Rome Art Boutique Hotel,,"10",41.9031937,12.4856907,3,50,28,6,22,,info@romearthotel.com,679844142,https://www.romearthotel.com/it/,1,I,1
+672,Rome Love Hotel,,"121",41.8943398,12.5029153,1,23,11,,10,1,info@hotelromelove.com,3395958179,,1,I,1
+673,Rome's Gloria Hotel,,"198",41.9091417,12.463005,2,16,8,1,6,1,gm2014srl@gmail.com,666735426,www.romesgloriahotel.it,1,I,1
+676,Royal Palace Luxury Hotel,,"34",41.90605,12.4806892,4,25,17,9,8,,,,,1,I,1
+677,Hotel San Francesco,,"7",41.8849568,12.4726553,3,48,24,,24,,daniele.frontoni@gmail.com,3355253255,,1,I,1
+678,Hotel San Marco,,"1",41.9049147,12.5052195,3,162,81,4,74,2,,,,1,I,1
+679,Hotel San Silvestro,,"3",41.9028454,12.4804516,2,25,21,17,4,,,,,1,I,1
+680,Hotel Sandra,,"10",41.9053337,12.5050899,1,23,9,,4,5,,,,1,I,1
+681,Hotel Sandy,,"136",41.896742,12.4957259,1,18,7,,3,4,,,,1,I,1
+682,Hotel Sant'angelo,,"16",41.905715,12.472514,3,50,31,14,15,2,,,,1,I,1
+683,Hotel Sant'anna,,"134",41.9039207,12.4592566,3,37,20,4,15,1,,,,1,I,1
+684,Hotel Sant'anselmo,,"2",41.88212,12.4794187,4,72,35,1,33,,info@aventinohotels.com,6570057,www.aventinohotels.com,1,I,1
+685,Hotel Santa Chiara,,"21",41.8976928,12.4769816,3,209,95,9,66,12,,,,1,I,1
+686,Hotel Santa Maria,,"2",41.890178,12.4700771,3,53,19,,9,5,info@hotelsantamaria.info,65894626,,1,I,1
+688,Hotel Santa Prassede,,"25",41.8962954,12.4990861,2,32,20,8,12,,,,,1,I,1
+689,Hotel Saturnia,,"4",41.8977781,12.4955287,2,25,18,12,5,1,,,,1,I,1
+690,Hotel Scalinata Di Spagna,,"17",41.9056839,12.4834313,3,41,16,,8,7,,,,1,I,1
+691,Scenario Hotel,,"26",41.897222,12.477659,3,24,12,,12,,info@hotelscenario.com,668806130,,1,I,1
+693,Hotel Selene,,"8",41.900698,12.496765,3,97,41,2,24,13,,,,1,I,1
+695,Hotel Serena,,"64",41.899252,12.499962,3,96,46,8,26,12,,,,1,I,1
+696,Seventy Seven Hotel,,"77",41.8990393,12.4958356,4,86,52,23,24,5,direzionemaison@gmail.com,639030146,,1,I,1
+697,Hotel Siena,,"33",41.9032888,12.4830925,4,30,20,10,10,,,,,1,I,1
+698,Hotel Silla,,"3",41.9093507,12.4591178,2,25,16,8,7,1,,,,1,I,1
+700,Singer Palace Hotel,,"10",41.8989514,12.4811345,5,58,29,,29,,welcome@singerpalace.com,3490816300,,1,I,1
+702,Hotel Sol Levante,,"87",41.903402,12.505986,1,19,10,2,7,1,,,,1,I,1
+703,Hotel Sonya,,"58",41.8999905,12.49558,3,25,15,5,10,,,,,1,I,1
+704,Sophie Terrace Hotel,,"6",41.9004762,12.4975672,3,42,20,,19,,alessiosiciliano@alice.it,3290206661,,1,I,1
+705,St.B Boutique Hotel,,"57",41.9048136,12.4896497,1,15,8,1,7,,info@stbhotel.com,683978691,,1,I,1
+706,Hotel St. Moritz,,"51",41.8997905,12.4921268,3,44,19,2,10,6,,,,1,I,1
+707,Hotel Stendhal,,"113",41.9034526,12.4875598,4,46,30,14,16,,,,,1,I,1
+708,Hotel Stromboli,,"34",41.9027645,12.5019548,3,94,51,17,26,7,,,,1,I,1
+709,Hotel Suisse,,"54",41.9044651,12.4852427,2,24,12,2,8,2,,,,1,I,1
+710,Suite Sistina For Brave Lovers Hotel,,"91",41.9051122,12.4854,3,60,27,,21,6,info@suitesistina.com,620368380,www.suitesistina.com,1,I,1
+711,Tb Place Roma Hotel,,"93",41.9039086,12.4824586,4,48,22,,20,,andrealimentani@gmail.com,3391494845,,1,I,1
+712,Hotel Teatro Pace 33,,"33",41.8987355,12.4715238,1,34,20,7,12,1,,,,1,I,1
+714,Hotel Terminal,,"103",41.8979206,12.5016026,3,89,35,5,6,24,booking@albergoterminal.com,64466867,,1,I,1
+715,Terrace Pantheon Relais Hotel.,,"18",41.8964585,12.4764196,4,70,32,3,22,5,tpr.amministrazione@gmail.com,66877992,,1,I,1
+716,Tex Hotel,,"97",41.8993536,12.5006773,3,81,39,9,20,8,info@hoteltexroma.it,662283973,www.hoteltexroma.it,1,I,1
+717,Texas Seven Hills,,"47",41.9027673,12.4937521,2,33,18,5,11,2,,,,1,I,1
+718,The B Place Hotel,,"239",41.9105512,12.4656678,3,19,9,,8,1,x3332327762@gmail.com,3332327762,,1,I,1
+719,The Boutique Hotel,,"243",41.9074132,12.4622053,3,62,14,1,9,4,info@theboutiquehotel.it,63241854,www.theboutiquehotel.it,1,I,1
+721,The Fifteen Keys Hotel,,"6",41.8976755,12.495531,4,25,15,5,10,,info@fifteenkeys.com,648913446,,1,I,1
+722,The One Boutique Hotel & S.P.A.,,"133",41.9024033,12.4863792,4,24,14,7,4,3,manager@theoneboutiquehotel.com,3395412151,,1,I,1
+723,The Opera Hotel,,"36",41.9003885,12.4929964,1,25,13,2,10,1,,,,1,I,1
+724,The Radical Hotel Roma,,"7",41.9058417,12.4927894,3,23,11,1,8,2,stay@theradicalhotel.it,698937366,www.theradicalhotel.it,1,I,1
+725,The Relaxing Hotel,,"261",41.8941843,12.4906858,2,17,7,1,2,4,marketing@therelaxinghotels.com,64815736,www.therelaxinghotels.com,1,I,1
+726,The Shire Hotel,,"146",41.9090489,12.4882683,3,32,9,2,7,,info@theshirehotel.com,645541040,www.theshirehotel.com,1,I,1
+729,Hotel Tirreno,,"17",41.895537,12.498192,3,81,48,23,17,8,,,,1,I,1
+730,Tmark Hotel Vaticano,,"99",41.9065755,12.451126,4,58,24,3,11,7,sede@tmarkhotelvaticano.it,639745562,www.tmarkhotelvaticano.it,1,I,1
+732,Hotel Trinita' Dei Monti,,"91",41.9051122,12.4854,3,57,24,3,11,8,nuovohoteltrinitadeimonti@gmail.com,39066990111,www.hoteltrinitadeimonti.com,1,I,1
+733,Hotel Tritone,,"210",41.9018413,12.4820174,3,99,43,5,24,10,,,,1,I,1
+735,Twenty One Art Hotel,,"23",41.9092175,12.4691167,4,167,93,29,57,4,info@twentyonerome.com,632609607,http://www.twentyonehotelrome.com,1,I,1
+736,Twenty One Art Hotel,,"23",41.9092175,12.4691167,4,167,93,29,57,4,info@twentyonerome.com,632609607,http://www.twentyonehotelrome.com,1,I,1
+737,Hotel Urbana 50,,"50",41.8956125,12.4938442,1,12,7,3,3,1,,,,1,I,1
+738,Vanity Hotel Navona,,"36",41.9015349,12.4717818,2,19,9,,8,1,vanityhotelnavona@email.it,669342848,,1,I,1
+739,Hotel Ventura,,"88",41.9033809,12.5065237,3,25,13,2,10,1,info@hotelphilia.it,64469026,www.hotelphilia.it,1,I,1
+740,Hotel Villa Delle Rose,,"5",41.903325,12.5035665,3,66,37,8,29,,,,,1,I,1
+745,Viminale View Hotel,,"14",41.900059,12.4943834,3,22,10,,8,2,info@viminaleviewhotel.com,64875314,,1,I,1
+746,Hotel Virginia,,"94",41.906112,12.5010718,2,16,8,1,6,1,,,,1,I,1
+748,Hotel Washington,,"77",41.8996164,12.5002273,2,25,12,2,8,1,info@hotelwashington.it,688795851,,1,I,1
+749,Hotel Welrome,,"15",41.9047853,12.49992,2,18,7,,4,2,,,,1,I,1
+750,Hotel White,,"77",41.9018984,12.485622,4,78,42,13,22,7,,,,1,I,1
+751,Hotel Windrose,,"35",41.9045189,12.5003307,3,85,52,25,21,6,,,,1,I,1

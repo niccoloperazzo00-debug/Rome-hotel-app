@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rome Hotels Map</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏨</text></svg>" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="popup.css" />
     <link
@@ -42,7 +43,22 @@
             <option value="4">4★</option>
             <option value="5">5★</option>
           </select>
-          <button id="maskToggle" type="button">Hide Mask</button>
+          <select id="statusFilter">
+            <option value="all">All Status</option>
+            <option value="White">White</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Red">Red</option>
+            <option value="highlighted">Highlighted Only</option>
+          </select>
+          <select id="phaseFilter">
+            <option value="all">All Phases</option>
+            <option value="1">Phase 1</option>
+            <option value="2">Phase 2</option>
+            <option value="3">Phase 3</option>
+            <option value="none">No Phase</option>
+          </select>
+          <button id="infoModeToggle" type="button" class="info-mode-btn">Info Mode: OFF</button>
         </div>
       </header>
 
@@ -108,7 +124,7 @@
               <span id="phaseDisplay" class="phase-text">Phase 1</span>
               <span class="dropdown-arrow">▼</span>
               <select id="popupPhase" class="phase-dropdown">
-                <option value="">Select Phase</option>
+                <option value="">No Phase</option>
                 <option value="1">Phase 1</option>
                 <option value="2">Phase 2</option>
                 <option value="3">Phase 3</option>
@@ -141,6 +157,18 @@
 
           <!-- Notes -->
           <textarea id="popupNotes" placeholder="Add notes..."></textarea>
+
+          <!-- Highlight Button and TOTroom -->
+          <div class="highlight-section">
+            <button id="highlightBtn" onclick="toggleHighlight()" class="highlight-btn">
+              <span id="highlightIcon">☆</span>
+              <span id="highlightText">Highlight</span>
+            </button>
+            <div class="totroom-display">
+              <span class="totroom-label">TOTroom:</span>
+              <span id="totroomValue" class="totroom-value">—</span>
+            </div>
+          </div>
 
           <!-- Actions -->
           <div class="popup-actions">

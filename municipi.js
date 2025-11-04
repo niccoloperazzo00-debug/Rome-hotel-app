@@ -1,8 +1,10 @@
 // municipi.js
 import { getMap } from "./map.js";
 import { romanToNumber, getMunicipioColor } from "./utils.js";
+import { getHotels } from "./hotels.js";
 
 export let municipioLayers = [];
+let infoModePopup = null;
 
 export function loadMunicipioBoundaries(skipFit = false) {
   const promises = [];
@@ -93,7 +95,7 @@ export function handleMunicipioViewChange() {
       layer.addTo(map);
       if (Number(layer.municipioId) === selectedId) {
         layer.setStyle({
-          weight: 5,
+          weight: 4,
           color: "#FF0000",
           fillOpacity: 0.0,
           fillColor: "transparent",
@@ -112,23 +114,12 @@ export function handleMunicipioViewChange() {
         );
         layer.on("click", onMunicipioClick);
         if (layer.bringToFront) layer.bringToFront();
-        if (
-          layer.getBounds &&
-          layer.getBounds().isValid &&
-          layer.getBounds().isValid()
-        ) {
-          map.fitBounds(layer.getBounds(), {
-            padding: [80, 80],
-            maxZoom: 13,
-            animate: true,
-          });
-        } else {
-          console.warn(
-            "No valid bounds for municipio",
-            layer.municipioId,
-            layer
-          );
+        
+        // ✅ Zoom to municipio when selecting from dropdown
+        if (layer.getBounds && layer.getBounds().isValid && layer.getBounds().isValid()) {
+          map.fitBounds(layer.getBounds(), { padding: [50, 50] });
         }
+        
         console.log("Activated municipio", selectedId, layer);
       } else {
         layer.setStyle({
@@ -142,16 +133,156 @@ export function handleMunicipioViewChange() {
   }
 }
 
+// Calculate statistics for a municipio
+function calculateMunicipioStats(municipioNum) {
+  const hotels = getHotels();
+  const municipioHotels = hotels.filter((hotel) => {
+    const hotelMunicipioNum = typeof hotel.municipio === "number"
+      ? hotel.municipio
+      : romanToNumber(hotel.municipio || "");
+    return hotelMunicipioNum === municipioNum;
+  });
+
+  const stats = {
+    total: municipioHotels.length,
+    status: {
+      White: 0,
+      Green: 0,
+      Yellow: 0,
+      Red: 0,
+    },
+    stars: {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+    },
+  };
+
+  municipioHotels.forEach((hotel) => {
+    // Count by status
+    const status = hotel.status || "White";
+    if (stats.status.hasOwnProperty(status)) {
+      stats.status[status]++;
+    }
+
+    // Count by star rating
+    const stars = hotel.star_rating;
+    if (stars >= 1 && stars <= 5) {
+      stats.stars[stars]++;
+    }
+  });
+
+  return stats;
+}
+
+// Format statistics for display
+function formatStatsHTML(municipioName, stats) {
+  const statusRows = Object.entries(stats.status)
+    .map(([status, count]) => `<tr><td style="text-align: right; padding-right: 10px;">${status}:</td><td style="text-align: center;"><strong>${count}</strong></td></tr>`)
+    .join("");
+
+  const starRows = Object.entries(stats.stars)
+    .filter(([_, count]) => count > 0)
+    .map(([stars, count]) => `<tr><td style="text-align: right; padding-right: 10px;">${stars}★:</td><td style="text-align: center;"><strong>${count}</strong></td></tr>`)
+    .join("");
+
+  return `
+    <div style="padding: 15px; min-width: 250px; font-family: Arial, sans-serif; text-align: center;">
+      <h3 style="margin: 0 0 15px 0; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; text-align: center;">
+        Municipio ${municipioName}
+      </h3>
+      
+      <div style="margin-bottom: 15px; text-align: center;">
+        <p style="margin: 5px 0; font-size: 18px; color: #34495e; text-align: center;">
+          <strong>Total Hotels:</strong> <span style="color: #3498db; font-size: 20px;">${stats.total}</span>
+        </p>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <h4 style="margin: 0 0 8px 0; color: #7f8c8d; font-size: 14px; text-transform: uppercase; text-align: center;">Status Breakdown:</h4>
+        <table style="width: auto; margin: 0 auto; border-collapse: collapse;">
+          ${statusRows}
+        </table>
+      </div>
+
+      ${starRows ? `
+      <div>
+        <h4 style="margin: 0 0 8px 0; color: #7f8c8d; font-size: 14px; text-transform: uppercase; text-align: center;">Star Ratings:</h4>
+        <table style="width: auto; margin: 0 auto; border-collapse: collapse;">
+          ${starRows}
+        </table>
+      </div>
+      ` : ""}
+    </div>
+  `;
+}
+
 function onMunicipioClick(e) {
   const layer = e.target;
-  // ✅ Only update if clicking on a different municipio
-  const currentView = document.getElementById("viewSelect").value;
-  if (currentView !== layer.municipioData.numero_rom) {
-    document.getElementById("viewSelect").value =
-      layer.municipioData.numero_rom;
-    handleMunicipioViewChange();
-    if (typeof window.handleHotelViewChange === "function")
-      window.handleHotelViewChange();
+  const map = getMap();
+  
+  // Close any existing info popup
+  if (infoModePopup) {
+    map.closePopup(infoModePopup);
+    infoModePopup = null;
   }
-  e.originalEvent.preventDefault(); // ✅ Stop event propagation
+
+  // Always highlight the clicked municipio in blue with thinner outline
+  // Reset all municipios to default style
+  municipioLayers.forEach((l) => {
+    const view = document.getElementById("viewSelect").value;
+    if (view === "full") {
+      l.setStyle({
+        weight: 3,
+        color: "#333333",
+        fillOpacity: 0,
+      });
+    } else {
+      l.setStyle({
+        weight: 2,
+        color: "#000000",
+        fillOpacity: 0,
+        fillColor: "transparent",
+      });
+    }
+  });
+
+  // Highlight clicked municipio in red with thicker outline
+  layer.setStyle({
+    weight: 4,
+    color: "#FF0000",
+    fillOpacity: 0.0,
+    fillColor: "transparent",
+  });
+
+  // Check Info Mode state
+  const infoModeBtn = document.getElementById("infoModeToggle");
+  const isInfoModeOn = infoModeBtn && infoModeBtn.textContent.includes("ON");
+
+  if (isInfoModeOn) {
+    // Calculate and display statistics
+    const municipioNum = layer.municipioId;
+    const stats = calculateMunicipioStats(municipioNum);
+    const municipioName = layer.municipioData.numero_rom || municipioNum;
+    
+    const center = layer.getBounds() && layer.getBounds().getCenter
+      ? layer.getBounds().getCenter()
+      : null;
+
+    if (center) {
+      const statsHTML = formatStatsHTML(municipioName, stats);
+      infoModePopup = L.popup({
+        maxWidth: 300,
+        className: "municipio-info-popup",
+      })
+        .setLatLng(center)
+        .setContent(statsHTML)
+        .openOn(map);
+    }
+  }
+
+  // ✅ No zoom when clicking municipios on map
+  e.originalEvent.preventDefault(); // Stop event propagation
 }
