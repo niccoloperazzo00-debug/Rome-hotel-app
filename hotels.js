@@ -127,7 +127,7 @@ async function fetchFreshHotels(startTime) {
     // Initialize Supabase if not already done
     const supabaseClient = await initSupabase();
     
-    // Fetch only needed columns for map display (exclude large location column)
+    // Fetch only needed columns for map display (exclude large location column and unused address columns)
     const { data, error } = await supabaseClient
       .from('Hotels')
       .select('id, nome, via, civico, Latitude, Longitude, stelle, municipio, status, phase, notes, TOTroom');
@@ -146,7 +146,7 @@ async function fetchFreshHotels(startTime) {
       status: r.status || r.Status || 'White', // Default to White if not set
       phase: r.phase || r.Phase || null,
       notes: r.notes || r.Notes || '',
-      address: r.address || r.Address || (r.via && r.civico ? `${r.via} ${r.civico}` : null),
+      address: r.address || r.Address || (r.via && r.civico ? `${r.via} ${r.civico}` : r.via || r.civico || null),
       totroom: r.TOTroom || r.totroom || r.TOTRoom || null,
       via: r.via,
       civico: r.civico,
@@ -449,7 +449,9 @@ function onMarkerClick(e) {
     // Update address section
     const addressValue = document.getElementById("addressValue");
     if (addressValue) {
-      addressValue.textContent = hotel.address || "—";
+      const displayAddress = hotel.address || (hotel.via && hotel.civico ? `${hotel.via} ${hotel.civico}` : hotel.via || hotel.civico || "—");
+      addressValue.textContent = displayAddress;
+      console.log("[hotels] address for hotel", hotel.id, ":", displayAddress, { address: hotel.address, via: hotel.via, civico: hotel.civico });
     }
 
           // Update coordinates
@@ -756,20 +758,18 @@ async function saveHotel() {
       hotels[idx] = { ...hotels[idx], ...updatedHotel };
     }
 
-    // Update marker - refresh view to show updated phase/status
+    // Update marker - update style and data without recreating all markers
     const marker = currentMarkers.find(
       (m) => m.hotelData && m.hotelData.id === id
     );
     if (marker) {
       marker.hotelData = { ...marker.hotelData, ...updatedHotel };
       
-      // If it's a circleMarker, update style directly
+      // Update marker style directly (much faster than recreating all markers)
       if (marker.setStyle) {
         marker.setStyle({ fillColor: getStatusColor(updatedHotel.status) });
       }
-      
-      // Refresh markers to show updated phase/status (recreates markers with new data)
-      handleHotelViewChange();
+      // No need to call handleHotelViewChange() - marker is already updated
     }
 
     // Update cache after successful save (idx already found above)
