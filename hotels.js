@@ -257,8 +257,8 @@ export function handleHotelViewChange() {
       const marker = L.circleMarker([hotel.latitude, hotel.longitude], {
         radius: initialRadius,
         fillColor: getStatusColor(hotel.status),
-        color: isHighlighted ? "#00FFFF" : "#000", // Fluorescent blue for highlighted
-        weight: isHighlighted ? 2 : 1, // Reduced thickness for highlighted
+        color: isHighlighted ? "#0080FF" : "#000", // Thin blue outline for highlighted
+        weight: isHighlighted ? 1 : 1, // Thin outline (1px) for highlighted hotels
         opacity: 1,
         fillOpacity: 0.9,
         interactive: true,
@@ -378,11 +378,11 @@ function updateMarkerSizes(zoom) {
       const hitboxRadius = Math.max(newRadius + 4, 8); // At least 4px larger, minimum 8px
       marker.hitbox.setRadius(hitboxRadius);
     }
-    // Preserve highlight style on zoom
+    // Preserve highlight style on zoom (thin blue outline at all zoom levels)
     if (marker.hotelData && isHotelHighlighted(marker.hotelData.id)) {
       marker.setStyle({
-        color: "#00FFFF",
-        weight: 2,
+        color: "#0080FF", // Thin blue outline
+        weight: 1, // Always 1px at all zoom levels
       });
     }
   });
@@ -390,16 +390,19 @@ function updateMarkerSizes(zoom) {
 
 function getMarkerRadius(zoom) {
   const minSize = 3,
-    maxSize = 8,
+    maxSize = 12, // Increased from 8 to 12 for larger pins when zoomed in
     zoomRange = 15;
   
   // At minimum zoom (zoom 10 - full map view), apply slight reduction for better visibility
   if (zoom === 10) {
-    return 2.5; // Reduced from 3px to 2.5px at full view only
+    return 2.5; // Keep small size at zoomed out position (unchanged)
   }
   
-  // At all other zoom levels, maintain current dynamic sizing
-  return minSize + ((zoom - 10) / zoomRange) * (maxSize - minSize);
+  // At all other zoom levels, make pins larger when zoomed in
+  // Using a slightly exponential curve to make higher zoom levels even more noticeable
+  const zoomProgress = (zoom - 10) / zoomRange; // 0 to 1
+  const exponentialFactor = Math.pow(zoomProgress, 0.8); // Slight curve for smoother growth
+  return minSize + exponentialFactor * (maxSize - minSize);
 }
 
 function onMarkerClick(e) {
@@ -727,13 +730,54 @@ async function saveHotel() {
   // Convert empty string to null, otherwise convert to number
   const phase = phaseVal === "" || phaseVal === null ? null : Number(phaseVal);
 
+  // ✅ OPTIMISTIC UI UPDATE - Update immediately for instant feedback
+  const updatedData = {
+    status: status,
+    phase: phase,
+    notes: notes || null,
+  };
+
+  // Update local data immediately
+  currentHotel.status = status;
+  currentHotel.phase = phase;
+  currentHotel.notes = notes || null;
+
+  // Update hotels array immediately
+  const idx = hotels.findIndex((h) => h.id === id);
+  if (idx !== -1) {
+    hotels[idx] = { ...hotels[idx], ...updatedData };
+  }
+
+  // Update marker immediately (optimistic UI)
+  const marker = currentMarkers.find(
+    (m) => m.hotelData && m.hotelData.id === id
+  );
+  if (marker) {
+    marker.hotelData = { ...marker.hotelData, ...updatedData };
+    const isHighlighted = isHotelHighlighted(id);
+    if (marker.setStyle) {
+      marker.setStyle({ 
+        fillColor: getStatusColor(status),
+        color: isHighlighted ? "#0080FF" : "#000",
+        weight: isHighlighted ? 1 : 1,
+      });
+    }
+  }
+
+  // Update cache immediately
+  if (idx !== -1) {
+    localStorage.setItem('hotels_cache', JSON.stringify(hotels));
+    localStorage.setItem('hotels_cache_timestamp', Date.now().toString());
+  }
+
+  // Close popup immediately for instant feedback
+  closePopup();
+
+  // ✅ Save to Supabase in background (non-blocking)
   try {
     const startTime = performance.now();
-    
-    // Initialize Supabase if not already done
     const supabaseClient = await initSupabase();
     
-    // Update hotel in Supabase - only select needed fields
     const { data: updatedHotel, error } = await supabaseClient
       .from('Hotels')
       .update({
@@ -747,42 +791,14 @@ async function saveHotel() {
 
     if (error) throw error;
 
-    // Update local data
-    currentHotel.status = updatedHotel.status;
-    currentHotel.phase = updatedHotel.phase;
-    currentHotel.notes = updatedHotel.notes;
-
-    // Update hotels array
-    const idx = hotels.findIndex((h) => h.id === id);
-    if (idx !== -1) {
-      hotels[idx] = { ...hotels[idx], ...updatedHotel };
-    }
-
-    // Update marker - update style and data without recreating all markers
-    const marker = currentMarkers.find(
-      (m) => m.hotelData && m.hotelData.id === id
-    );
-    if (marker) {
-      marker.hotelData = { ...marker.hotelData, ...updatedHotel };
-      
-      // Update marker style directly (much faster than recreating all markers)
-      if (marker.setStyle) {
-        marker.setStyle({ fillColor: getStatusColor(updatedHotel.status) });
-      }
-      // No need to call handleHotelViewChange() - marker is already updated
-    }
-
-    // Update cache after successful save (idx already found above)
-    if (idx !== -1) {
-      localStorage.setItem('hotels_cache', JSON.stringify(hotels));
-      localStorage.setItem('hotels_cache_timestamp', Date.now().toString());
-    }
-
     const saveTime = performance.now() - startTime;
     console.log(`✅ Hotel saved successfully in ${saveTime.toFixed(2)}ms:`, updatedHotel);
-    closePopup();
   } catch (err) {
     console.error("[hotels] save error", err);
+    // Revert optimistic update on error
+    if (idx !== -1 && hotels[idx]) {
+      hotels[idx] = { ...hotels[idx], ...currentHotel };
+    }
     alert("Failed to save hotel. Please try again.");
   }
 }
@@ -844,9 +860,11 @@ function toggleHighlight() {
     (m) => m.hotelData && m.hotelData.id === currentHotel.id
   );
   if (marker) {
+    const statusColor = getStatusColor(currentHotel.status);
     marker.setStyle({
-      color: wasHighlighted ? "#00FFFF" : "#000",
-      weight: wasHighlighted ? 3 : 1,
+      fillColor: statusColor,
+      color: wasHighlighted ? "#0080FF" : "#000", // Thin blue outline when highlighted
+      weight: 1, // Always thin outline (1px) at all zoom levels
     });
   }
   
