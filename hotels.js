@@ -258,7 +258,7 @@ export function handleHotelViewChange() {
         radius: initialRadius,
         fillColor: getStatusColor(hotel.status),
         color: isHighlighted ? "#0080FF" : "#000",
-        weight: 1,
+        weight: isHighlighted ? 2 : 1,
         opacity: 1,
         fillOpacity: 0.9,
         interactive: true,
@@ -429,7 +429,7 @@ function updateMarkerSizes(zoom) {
       radius: newRadius,
       fillColor: getStatusColor(hotel.status),
       color: isHighlighted ? "#0080FF" : "#000",
-      weight: 1,
+        weight: isHighlighted ? 2 : 1,
       opacity: 1,
       fillOpacity: 0.9,
       interactive: true,
@@ -821,7 +821,7 @@ async function saveHotel() {
       marker.setStyle({ 
         fillColor: getStatusColor(status),
         color: isHighlighted ? "#0080FF" : "#000",
-        weight: isHighlighted ? 1 : 1,
+        weight: isHighlighted ? 2 : 1,
       });
     }
   }
@@ -925,8 +925,8 @@ function toggleHighlight() {
     const statusColor = getStatusColor(currentHotel.status);
     marker.setStyle({
       fillColor: statusColor,
-      color: wasHighlighted ? "#0080FF" : "#000", // Thin blue outline when highlighted
-      weight: 1, // Always thin outline (1px) at all zoom levels
+      color: wasHighlighted ? "#0080FF" : "#000", // Blue outline when highlighted
+      weight: wasHighlighted ? 2 : 1, // 2px for highlighted, 1px for normal
     });
   }
   
