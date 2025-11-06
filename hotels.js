@@ -461,10 +461,11 @@ function updateMarkerSizes(zoom) {
 }
 
 function getMarkerRadius(zoom) {
-  if (zoom >= 17) {
-    return 14;
-  }
-  return 2.5;
+  // Smooth progressive scaling from zoom 10 (2.5px) to zoom 18 (14px)
+  // Clamp zoom to valid range for interpolation
+  const clampedZoom = Math.max(10, Math.min(18, zoom));
+  const radius = 2.5 + Math.pow((clampedZoom - 10) / 8, 2) * (14 - 2.5);
+  return radius;
 }
 
 function onMarkerClick(e) {
