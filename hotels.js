@@ -389,20 +389,29 @@ function updateMarkerSizes(zoom) {
 }
 
 function getMarkerRadius(zoom) {
-  const minSize = 3,
-    maxSize = 12, // Increased from 8 to 12 for larger pins when zoomed in
-    zoomRange = 15;
+  const smallSize = 2.5; // Small size for most zoom levels
+  const maxSize = 14; // Maximum size when fully zoomed in
+  const zoomThreshold = 13.5; // Start dynamic scaling from zoom 13.5+
+  const maxZoom = 19; // Maximum zoom level
   
-  // At minimum zoom (zoom 10 - full map view), apply slight reduction for better visibility
+  // At minimum zoom (zoom 10 - full city view), use smallest size
   if (zoom === 10) {
-    return 2.5; // Keep small size at zoomed out position (unchanged)
+    return smallSize;
   }
   
-  // At all other zoom levels, make pins larger when zoomed in
-  // Using a slightly exponential curve to make higher zoom levels even more noticeable
-  const zoomProgress = (zoom - 10) / zoomRange; // 0 to 1
-  const exponentialFactor = Math.pow(zoomProgress, 0.8); // Slight curve for smoother growth
-  return minSize + exponentialFactor * (maxSize - minSize);
+  // Keep small size for zoom levels below threshold
+  if (zoom < zoomThreshold) {
+    return smallSize;
+  }
+  
+  // Dynamic scaling from zoom 13.5+ to max zoom
+  // Start from a base size (around 4px) at zoom 13.5 and grow to 14px at max zoom
+  const startSize = 4; // Starting size at zoom 13.5
+  const zoomRange = maxZoom - zoomThreshold; // Range from 13.5 to 19
+  const zoomProgress = (zoom - zoomThreshold) / zoomRange; // 0 to 1
+  const dynamicSize = startSize + (zoomProgress * (maxSize - startSize));
+  
+  return dynamicSize;
 }
 
 function onMarkerClick(e) {
