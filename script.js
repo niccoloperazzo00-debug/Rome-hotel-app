@@ -3,17 +3,13 @@ import {
   loadMunicipioBoundaries,
   handleMunicipioViewChange,
 } from "./municipi.js";
-import { loadHotels, handleHotelViewChange } from "./hotels.js";
+import { loadHotels, handleHotelViewChange, setupMapPerformance } from "./hotels.js";
 
 window.onload = () => {
   initMap();
 
-  // ✅ Initialize performance optimizations
-  setTimeout(() => {
-    if (window.setupMapPerformance) {
-      setupMapPerformance();
-    }
-  }, 1000);
+  // ✅ Initialize performance optimizations (zoom handler for marker sizing)
+  setupMapPerformance();
 
   loadMunicipioBoundaries(true).then(() => {
     loadHotels();

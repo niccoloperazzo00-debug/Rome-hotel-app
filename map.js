@@ -32,6 +32,15 @@ export function initMap() {
     worldCopyJump: false,
   }).setView(ROME_CENTER, 10);
 
+  // Create custom SVG pane for markers to bypass canvas rendering issues
+  if (!map.getPane('markerPane')) {
+    map.createPane('markerPane');
+  }
+  const markerPane = map.getPane('markerPane');
+  if (markerPane) {
+    markerPane.style.zIndex = 600; // Above other layers
+  }
+
   // ✅ Add zoom controls manually for better positioning
   L.control.zoom({
     position: 'topright',

@@ -241,7 +241,7 @@ export function handleHotelViewChange() {
       const isHighlighted = isHotelHighlighted(hotel.id);
       
       // Create invisible larger hitbox for easier clicking (behind visible marker)
-      const hitboxRadius = Math.max(initialRadius + 4, 8); // At least 4px larger, minimum 8px
+      const hitboxRadius = Math.max(initialRadius + 4, 8);
       const hitbox = L.circleMarker([hotel.latitude, hotel.longitude], {
         radius: hitboxRadius,
         fillColor: "transparent",
@@ -257,8 +257,8 @@ export function handleHotelViewChange() {
       const marker = L.circleMarker([hotel.latitude, hotel.longitude], {
         radius: initialRadius,
         fillColor: getStatusColor(hotel.status),
-        color: isHighlighted ? "#0080FF" : "#000", // Thin blue outline for highlighted
-        weight: isHighlighted ? 1 : 1, // Thin outline (1px) for highlighted hotels
+        color: isHighlighted ? "#0080FF" : "#000",
+        weight: 1,
         opacity: 1,
         fillOpacity: 0.9,
         interactive: true,
@@ -353,65 +353,118 @@ export function handleHotelViewChange() {
 }
 
 let zoomTimeout;
+let lastZoomLevel = null;
+
 export function setupMapPerformance() {
   const map = getMap();
-  if (!map) return;
+  if (!map) {
+    console.error("[markers] setupMapPerformance: map not available");
+    return;
+  }
 
-  // ✅ Debounced zoom handler to prevent excessive marker updates
+  lastZoomLevel = map.getZoom();
+  console.log("[markers] setupMapPerformance initialized, initial zoom:", lastZoomLevel);
+
   map.on("zoomend", function () {
-    clearTimeout(zoomTimeout);
-    zoomTimeout = setTimeout(() => {
-      const currentZoom = map.getZoom();
-      updateMarkerSizes(currentZoom);
-    }, 150); // Wait 150ms after zoom ends
+    const currentZoom = map.getZoom();
+    console.log("[markers] zoomend event fired, zoom:", currentZoom, "previous:", lastZoomLevel);
+    if (currentZoom !== lastZoomLevel) {
+      lastZoomLevel = currentZoom;
+      clearTimeout(zoomTimeout);
+      zoomTimeout = setTimeout(() => {
+        console.log("[markers] Calling updateMarkerSizes with zoom:", currentZoom);
+        updateMarkerSizes(currentZoom);
+      }, 100);
+    }
   });
 }
 
 function updateMarkerSizes(zoom) {
   const newRadius = getMarkerRadius(zoom);
+  console.log("[markers] updateMarkerSizes called - zoom:", zoom, "newRadius:", newRadius, "markers count:", currentMarkers.length);
+  
+  if (currentMarkers.length === 0) {
+    console.warn("[markers] No markers to update");
+    return;
+  }
+  
+  // Recreate markers - canvas rendering doesn't update circleMarker radius properly
+  const map = getMap();
+  if (!map) {
+    console.error("[markers] Map not available in updateMarkerSizes");
+    return;
+  }
+  
+  const hotelsToRecreate = currentMarkers.map(m => m.hotelData).filter(Boolean);
+  console.log("[markers] Recreating", hotelsToRecreate.length, "markers");
+  
+  // Remove all markers
   currentMarkers.forEach((marker) => {
-    if (marker.setRadius) {
-      marker.setRadius(newRadius);
+    if (marker && map.hasLayer(marker)) {
+      map.removeLayer(marker);
     }
-    // Update hitbox size to maintain larger clickable area
-    if (marker.hitbox && marker.hitbox.setRadius) {
-      const hitboxRadius = Math.max(newRadius + 4, 8); // At least 4px larger, minimum 8px
-      marker.hitbox.setRadius(hitboxRadius);
-    }
-    // Preserve highlight style on zoom (thin blue outline at all zoom levels)
-    if (marker.hotelData && isHotelHighlighted(marker.hotelData.id)) {
-      marker.setStyle({
-        color: "#0080FF", // Thin blue outline
-        weight: 1, // Always 1px at all zoom levels
-      });
+    if (marker?.hitbox && map.hasLayer(marker.hitbox)) {
+      map.removeLayer(marker.hitbox);
     }
   });
+  
+  // Recreate markers with new size
+  const markersToAdd = [];
+  hotelsToRecreate.forEach((hotel) => {
+    const isHighlighted = isHotelHighlighted(hotel.id);
+    const hitboxRadius = Math.max(newRadius + 4, 8);
+    
+    const hitbox = L.circleMarker([hotel.latitude, hotel.longitude], {
+      radius: hitboxRadius,
+      fillColor: "transparent",
+      color: "transparent",
+      weight: 0,
+      opacity: 0,
+      fillOpacity: 0,
+      interactive: true,
+      bubblingMouseEvents: false,
+    });
+    
+    const marker = L.circleMarker([hotel.latitude, hotel.longitude], {
+      radius: newRadius,
+      fillColor: getStatusColor(hotel.status),
+      color: isHighlighted ? "#0080FF" : "#000",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.9,
+      interactive: true,
+      bubblingMouseEvents: false,
+    });
+    
+    marker.hotelData = hotel;
+    hitbox.hotelData = hotel;
+    
+    marker.on("click", onMarkerClick);
+    marker.on("touchstart", function (e) {
+      e.originalEvent.preventDefault();
+      onMarkerClick(e);
+    });
+    hitbox.on("click", onMarkerClick);
+    hitbox.on("touchstart", function (e) {
+      e.originalEvent.preventDefault();
+      onMarkerClick(e);
+    });
+    
+    hitbox.addTo(map);
+    marker.addTo(map);
+    marker.hitbox = hitbox;
+    markersToAdd.push(marker);
+  });
+  
+  currentMarkers = markersToAdd;
+  console.log("[markers] Recreated", markersToAdd.length, "markers with radius", newRadius);
 }
 
 function getMarkerRadius(zoom) {
-  const smallSize = 2.5; // Small size for most zoom levels
-  const maxSize = 14; // Maximum size when fully zoomed in
-  const zoomThreshold = 13.5; // Start dynamic scaling from zoom 13.5+
-  const maxZoom = 19; // Maximum zoom level
-  
-  // At minimum zoom (zoom 10 - full city view), use smallest size
-  if (zoom === 10) {
-    return smallSize;
+  if (zoom >= 17) {
+    return 14;
   }
-  
-  // Keep small size for zoom levels below threshold
-  if (zoom < zoomThreshold) {
-    return smallSize;
-  }
-  
-  // Dynamic scaling from zoom 13.5+ to max zoom
-  // Start from a base size (around 4px) at zoom 13.5 and grow to 14px at max zoom
-  const startSize = 4; // Starting size at zoom 13.5
-  const zoomRange = maxZoom - zoomThreshold; // Range from 13.5 to 19
-  const zoomProgress = (zoom - zoomThreshold) / zoomRange; // 0 to 1
-  const dynamicSize = startSize + (zoomProgress * (maxSize - startSize));
-  
-  return dynamicSize;
+  return 2.5;
 }
 
 function onMarkerClick(e) {
