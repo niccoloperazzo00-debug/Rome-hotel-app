@@ -464,7 +464,9 @@ function getMarkerRadius(zoom) {
   // Smooth progressive scaling from zoom 10 (2.5px) to zoom 18 (14px)
   // Clamp zoom to valid range for interpolation
   const clampedZoom = Math.max(10, Math.min(18, zoom));
-  const radius = 2.5 + Math.pow((clampedZoom - 10) / 8, 2) * (14 - 2.5);
+  const minRadius = 2.5;
+  const maxRadius = 14;
+  const radius = minRadius + Math.pow((clampedZoom - 10) / 8, 2) * (maxRadius - minRadius);
   return radius;
 }
 
